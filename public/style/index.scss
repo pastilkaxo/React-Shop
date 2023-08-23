@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Lilita+One&display=swap');
+*{
+    transition: 0.15s;
+    box-sizing: border-box;
+    color: #000;
+    font-family: 'Libre Baskerville', serif;
+    font-family: 'Lilita One', cursive;
+}
+body,
+html {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  background-color: #E7F6FF;
+}
+
+body {
+display: flex;
+justify-content: center;
+margin-top: 85px;
+#root {
+width: 1080px;
+border-radius: 20px;
+background: #FFF;
+box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.04);
+    }
+}

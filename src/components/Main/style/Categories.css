@@ -1,0 +1,79 @@
+.categories {
+    width: auto;
+}
+
+.categories .container {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+}
+.container div {
+    text-align: center;
+    flex-basis: calc(33.33%); /* Ширина 1/3 экрана минус промежутки */
+    margin: 20px;
+    border: 2px solid #F3F3F3;
+    border-radius: 15px;
+    width: 250px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+    transition: background-image .0,3s ease-in-out;
+    transition: background-color .0.15s ease-in-out;
+}
+.cat-1 {
+    opacity: 0.8;  
+    background-image: url(https://cdn.pixabay.com/photo/2013/03/27/12/29/bmx-97090_640.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.cat-2{
+    opacity: 0.8;  
+    background-image: url(https://down-th.img.susercontent.com/file/f8bf5545b1fd367bbfaa56682c52b9d5);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.cat-3{
+    opacity: 0.8;  
+    background-image: url(https://ru.kingsbikes.net/5682-large_default/rul-bmx-kink-rex-95-chernyj.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.cat-4{
+    opacity: 0.8;   
+    background-image: url(https://www.crazybike.ru/components/com_virtuemart/shop_image/product/11-7819.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.container div p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    font-size: 4em;
+    width: 100%;
+    height: 100%;
+    transition: color .0,3s ease-in-out;
+    color: #262626;
+}
+
+.container div:hover{
+    background-image: none;
+    background-color: black;
+    
+}
+.container div p:hover{
+    color: white;
+}
+
