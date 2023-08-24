@@ -1,0 +1,16 @@
+.new-fav-container{
+display: block;
+height: 800px;
+}
+.load-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 800px;
+}
+.load-container.hidden{
+    display:none;
+}
+.new-fav-container.hidden {
+    display: none;
+}

@@ -9,15 +9,28 @@ import { Bikes } from "./AllData";
 function App (){
   const [display,setDisplay] = useState('none');
   const [cart,setCart] = useState([]);
-  const [added,setAdded] = useState('./img/add.svg');
-  const [bikes,setBikes] = useState(Bikes);
+  const [added,setAdded] = useState([]); // !
+  const [favorite,setFavorite] = useState([])
+  const [bikes,setBikes] = useState(Bikes); // !
+  const [showMainContent, setShowMainContent] = useState(true); 
+  const [displayFavContainer, setDisplayFavContainer] = useState(true);
   
+
+const toggleFavContainer = () => {
+  setDisplayFavContainer(!displayFavContainer);
+};
+
+  const toggleMainContent = () => {
+    setShowMainContent(!showMainContent);
+  };
+
   const addToCart = (bike) => {
           setCart((prev) => ([...prev,bike]))
         }
-  const addBtnChange = () => {
-     
-    
+
+  const addFavBtn = (bike) => {
+       setFavorite((prev) => ([...prev,bike]) )  
+        // add and del heaart
   }
 
   const delFromCart = (id) => {
@@ -28,10 +41,19 @@ function App (){
                   return newArray;
                 }
                    return prevCart;
-         })
-        
+         })    
   }
-            
+ const delFavItem = (id) => {
+  setFavorite((prevFav) => {
+    const idx = prevFav.findIndex((bike) => bike.id === id);
+    if(idx !== -1){
+      const newFavArray = [...prevFav.slice(0,idx),...prevFav.slice(idx+1)];
+      return newFavArray;
+    }
+       return prevFav;
+}) 
+ }
+  
   const displayBlock = () =>  {
           setDisplay('block');
   }
@@ -40,16 +62,16 @@ function App (){
   }
 
   
-
-
-
 return(
   <div className="app-body">
      <div className="overlay" style={{display:display}}>
      <Cart bikes={cart}  displayNone={displayNone} delFromCart={delFromCart}/>
      </div>
-    <Header displayChange={displayBlock} bikes={cart}/>
-    <Main bikes={bikes} added={added} addToCart={addToCart} addBtnChange={addBtnChange}/>
+    <Header toggleFavContainer={toggleFavContainer} displayChange={displayBlock} displayMain={toggleMainContent} bikes={cart} added={favorite} />
+    <Main displayMain={toggleMainContent} toggleFavContainer={toggleFavContainer} 
+    showMainContent={showMainContent}  displayFavContainer={displayFavContainer} 
+    bikes={bikes} added={added} addToCart={addToCart} addFavBtn={addFavBtn} 
+    favorite={favorite} delFavItem={delFavItem}/>
     <Footer/>
   </div>
 )

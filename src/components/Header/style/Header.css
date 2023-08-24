@@ -34,13 +34,11 @@ align-items: center;
 .cart svg{
     z-index: 1;
     position: relative;
-    margin-left: 10px;
 }
  svg:hover {
     transform: scale(1.2);
 }
 .cart .cart-length {
-    position: absolute;
     z-index: 2;
     margin-top: 10px;
     color: white;
@@ -50,12 +48,23 @@ align-items: center;
     border: 1px solid black;
     border-radius: 20px;
 }
-.cart p{
-    color: #5C5C5C;
-    font-size: 17px;
-    font-style: normal;
-    font-weight: 300;
-    line-height: normal;
+.favorite {
+    display: flex;
+    align-items: center; 
+}
+.favorite{
+    z-index: 1;
+    position: relative;
+}
+.favorite .fav-length {
+    z-index: 2;
+    margin-top: 10px;
+    color: red;
+    background-color: pink;
+    text-align: center;
+    width: 20px;
+    border-radius: 20px;
+    border: 1px solid pink;
 }
 .links {
     display: flex;

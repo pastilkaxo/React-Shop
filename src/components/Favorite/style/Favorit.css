@@ -1,0 +1,151 @@
+.fav-container {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.card{
+    width: 210px;
+height: 260px;
+border-radius: 40px;
+border: 2px solid #F3F3F3;
+background: #FFF;
+flex-basis: calc(33.33% - 20px); /* Ширина 1/3 экрана минус промежутки */
+margin: 20px; /* Промежутки между карточками */
+}
+
+.bike-favorite  {
+ position: relative;
+margin-top: 20px;
+}
+
+.bike-favorite svg {
+   position: absolute;
+   z-index: 2;
+   cursor: pointer;
+   width: 32px;
+  height: 32px;
+}
+
+.bike-favorite img {
+position:relative;
+width: 133px;
+height: 112px;
+z-index:1;
+}
+.card-info p{
+   width: 200px;
+   text-align: center;
+   color: #000;
+   font-family: Arial, Helvetica, sans-serif;
+   font-size: 14px;
+   font-style: normal;
+   font-weight: bold;
+   line-height: normal;
+}
+.add-tools {
+   display: flex;
+   align-items: center;
+      gap: 50px;
+}
+.add-tools .bike-cost p{
+   font-family: Arial, Helvetica, sans-serif;
+   font-weight: bold;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+    }
+    .bike-cost p small {
+      color: #9D9D9D;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+    .add-tools .add-button {
+      cursor: pointer;
+    }
+    .add-button img {
+       width: 32px;
+       height: 32px;
+    }
+    .add-button img:hover {
+       transform: scale(1.2);
+    }
+
+
+
+.card {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+  transition: box-shadow 0.2s ease-in-out , transform 0.2s ease-in-out;
+}
+.card:hover {
+   box-shadow: 0px 15px 35px rgb(182, 182, 182);
+    transform: translateY(-5px);
+}
+/* CARD STYLE END */
+
+.fav-text {
+    font-weight: 100;
+    text-transform: uppercase;
+    justify-content: center;
+    flex-wrap: wrap;
+    font-size: 6rem;
+    animation: faidIn 2s ease-in-out;
+ }
+
+
+/* -------------------------- */
+
+
+.fav-empty {
+    justify-content: center;
+align-items: center;
+flex-direction: column;
+margin-top: 150px;
+}
+.fav-empty p {
+color: #9D9D9D;
+text-transform: uppercase;
+}
+.fav-empty button {
+position: relative;
+cursor: pointer;
+ width: 300px;
+ height: 55px;
+ background-color: #9dd558;
+ border-radius: 20px;
+ border: none;
+ color: white;
+ font-size: 16px;
+ font-weight: 100;
+ transition: background-color 0.2s ease-in-out;
+}
+.fav-empty button .empty-btn-img {
+position: absolute;
+left: 40px;
+top: 20px;
+transition: transform 0.15s ease-in-out;
+}
+.fav-empty button:hover{
+background-color: #8cbe00;
+}
+.fav-empty button:hover .empty-btn-img {
+transform: translateX(5px);
+}
+.fav-empty button:active {
+background-color: black;
+}
+
+
+
+
+ @keyframes faidIn {
+    0%{opacity: 0; transform: translate3d(0,100%,0);}
+    100%{opacity: 1; transform: translate3d(0,0,0);}
+ }
+
