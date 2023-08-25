@@ -3,8 +3,11 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    margin-top: 43px;
     gap: 250px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    padding-top: 30px;
+    margin-bottom: 30px;
 }
 .header .logo {
     display: flex;

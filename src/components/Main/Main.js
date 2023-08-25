@@ -10,14 +10,21 @@ const Main = ({ bikes,addToCart, addFavBtn , added,
 
    const [searchResult, setSearchResult] = useState('');
 
+   // --------------------------------
 
-
+   const loaderProps = {
+    toggleFavContainer:toggleFavContainer,
+    favorite:favorite,
+    displayFavContainer:displayFavContainer,
+    delFavItem:delFavItem,
+    addToCart:addToCart ,
+    added:added,
+    displayMain:displayMain,
+   }
+    
   return (
     <main>
-      <Loader toggleFavContainer={toggleFavContainer} 
-      favorite={favorite} displayFavContainer={displayFavContainer} 
-      delFavItem={delFavItem} addToCart={addToCart} added={added} 
-      displayMain={displayMain}/>
+      <Loader {...loaderProps}/>
          {showMainContent &&      
           <>
           <Categories /><div className="search-panel">

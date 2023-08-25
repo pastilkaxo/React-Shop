@@ -61,17 +61,43 @@ const toggleFavContainer = () => {
      setDisplay('none');
   }
 
-  
+
+// -----------------------------------------|
+const headerProps = {
+  toggleFavContainer:toggleFavContainer,
+   displayChange:displayBlock ,
+   displayMain:toggleMainContent,
+   bikes:cart,
+    added:favorite,
+}
+
+const cartProps = {
+  bikes:cart,
+  displayNone:displayNone,
+  delFromCart:delFromCart,
+}
+
+const mainProps = {
+  displayMain: toggleMainContent,
+  toggleFavContainer: toggleFavContainer,
+  showMainContent: showMainContent,
+  displayFavContainer: displayFavContainer,
+  bikes: bikes,
+  added: added,
+  addToCart: addToCart,
+  addFavBtn: addFavBtn,
+  favorite: favorite,
+  delFavItem: delFavItem
+};
+
+
 return(
   <div className="app-body">
      <div className="overlay" style={{display:display}}>
-     <Cart bikes={cart}  displayNone={displayNone} delFromCart={delFromCart}/>
+     <Cart {...cartProps}/>
      </div>
-    <Header toggleFavContainer={toggleFavContainer} displayChange={displayBlock} displayMain={toggleMainContent} bikes={cart} added={favorite} />
-    <Main displayMain={toggleMainContent} toggleFavContainer={toggleFavContainer} 
-    showMainContent={showMainContent}  displayFavContainer={displayFavContainer} 
-    bikes={bikes} added={added} addToCart={addToCart} addFavBtn={addFavBtn} 
-    favorite={favorite} delFavItem={delFavItem}/>
+    <Header {...headerProps} />
+    <Main {...mainProps}/>
     <Footer/>
   </div>
 )

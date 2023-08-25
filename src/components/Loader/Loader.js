@@ -21,14 +21,23 @@ const [isLoading ,setIsLoading] = useState(true);
         </div>
      )
  }
+  
 
+ // ---------------------------------------
+
+ const favoritProps = {
+   toggleFavContainer:toggleFavContainer,
+   favorite:favorite,
+   delFavItem:delFavItem,
+   added:added,
+   addToCart:addToCart,
+   displayMain:displayMain,
+ } 
 
 
 return(
    <div className={displayFavContainer ? 'new-fav-container hidden' : 'new-fav-container' } >
-      <Favorit toggleFavContainer={toggleFavContainer} favorite={favorite}
-       delFavItem={delFavItem} added={added} addToCart={addToCart}
-       displayMain={displayMain}/>
+      <Favorit {...favoritProps} />
    </div>
 )
 

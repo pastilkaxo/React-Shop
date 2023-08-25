@@ -1,0 +1,57 @@
+footer {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.foot-container {
+width: 100%;
+background-color: #9dd558;
+height: 200px;
+border-bottom-right-radius: 20px;
+border-bottom-left-radius: 20px;
+margin-top: 5rem;
+display: flex;
+align-items: center;
+justify-content: space-evenly;
+
+}
+
+ .logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.foot-summury p{
+font-size: 30px;
+font-style: normal;
+line-height: normal;
+text-transform: uppercase;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+.foot-summury small {
+    color: white;
+font-size: 26px;
+font-style: normal;
+font-weight: 100;
+line-height: normal;
+}
+.main-info p{
+  font-size: 1.2rem;
+}
+
+.main-links ul {
+    list-style-type: none;
+    display: flex;
+    gap: 15px;
+}
+
+.main-links ul li a {
+    cursor: pointer;
+}
+
+.main-links ul li a img:hover {
+    transform: scale(1.2);
+}
