@@ -1,20 +1,26 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "./Header/Header";
 import Main from "./Main/Main";
 import Footer from "./Footer/Footer";
 import Cart from "./Cart/Cart";
 import { Bikes } from "./AllData";
+import { SnackbarProvider } from "notistack";
 
 
 function App (){
   const [display,setDisplay] = useState('none');
   const [cart,setCart] = useState([]);
   const [added,setAdded] = useState([]); // !
-  const [favorite,setFavorite] = useState([])
-  const [bikes,setBikes] = useState(Bikes); // !
+  const [favorite,setFavorite] = useState(Bikes)
+  const [bikes,setBikes] = useState([]); // !   ...
   const [showMainContent, setShowMainContent] = useState(true); 
   const [displayFavContainer, setDisplayFavContainer] = useState(true);
   
+
+
+
+   
+
 
 const toggleFavContainer = () => {
   setDisplayFavContainer(!displayFavContainer);
@@ -29,8 +35,13 @@ const toggleFavContainer = () => {
         }
 
   const addFavBtn = (bike) => {
-       setFavorite((prev) => ([...prev,bike]) )  
-        // add and del heaart
+       const isAlreadyFav = favorite.some((favBike) => favBike.id === bike.id);
+       if(isAlreadyFav){
+        delFavItem(bike.id);
+       }
+       else {
+        setFavorite((prev) => ([...prev,bike]) )  
+       }
   }
 
   const delFromCart = (id) => {
@@ -61,7 +72,6 @@ const toggleFavContainer = () => {
      setDisplay('none');
   }
 
-
 // -----------------------------------------|
 const headerProps = {
   toggleFavContainer:toggleFavContainer,
@@ -87,7 +97,7 @@ const mainProps = {
   addToCart: addToCart,
   addFavBtn: addFavBtn,
   favorite: favorite,
-  delFavItem: delFavItem
+  delFavItem: delFavItem,
 };
 
 
@@ -97,7 +107,9 @@ return(
      <Cart {...cartProps}/>
      </div>
     <Header {...headerProps} />
-    <Main {...mainProps}/>
+    <SnackbarProvider maxSnack={3}>
+        <Main {...mainProps}/>
+    </SnackbarProvider>
     <Footer/>
   </div>
 )

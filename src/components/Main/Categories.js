@@ -10,6 +10,7 @@ export default function Categories(){
                             <div className="cat-3"><p>Rudders</p></div>
                             <div className="cat-4"><p>Frames</p></div>
                    </div>
+
           </section>
          )  
     };
