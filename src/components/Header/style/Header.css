@@ -77,4 +77,17 @@ align-items: center;
 .links span svg {
     cursor: pointer;
 }
+/*-------------*/
 
+
+@media screen and (max-width: 600px) {
+    .header {
+        flex-direction: column; 
+        text-align: center; 
+    }
+    .links {
+        display: flex;
+        justify-content: center;
+        margin-top: -250px;
+    }
+}

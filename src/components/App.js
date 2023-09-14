@@ -5,14 +5,17 @@ import Footer from "./Footer/Footer";
 import Cart from "./Cart/Cart";
 import { Bikes } from "./AllData";
 import { SnackbarProvider } from "notistack";
+import Login from "./Accout/Login";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+
 
 
 function App (){
   const [display,setDisplay] = useState('none');
   const [cart,setCart] = useState([]);
   const [added,setAdded] = useState([]); // !
-  const [favorite,setFavorite] = useState(Bikes)
-  const [bikes,setBikes] = useState([]); // !   ...
+  const [favorite,setFavorite] = useState([])
+  const [bikes,setBikes] = useState(Bikes); // !   ...
   const [showMainContent, setShowMainContent] = useState(true); 
   const [displayFavContainer, setDisplayFavContainer] = useState(true);
   
@@ -102,16 +105,23 @@ const mainProps = {
 
 
 return(
+  <Router>
   <div className="app-body">
-     <div className="overlay" style={{display:display}}>
-     <Cart {...cartProps}/>
-     </div>
-    <Header {...headerProps} />
-    <SnackbarProvider maxSnack={3}>
-        <Main {...mainProps}/>
-    </SnackbarProvider>
-    <Footer/>
+    <div className="overlay" style={{ display: display }}>
+      <Cart {...cartProps} />
+    </div>
+    <Routes>
+      <Route path="/login" element={<Login />} /> {/* Use 'element' to specify the component */}
+      <Route path="/" element={<>
+        <Header {...headerProps} />
+        <SnackbarProvider maxSnack={3}>
+          <Main {...mainProps} />
+        </SnackbarProvider>
+        <Footer />
+      </>} />
+    </Routes>
   </div>
+</Router>
 )
 }
 export default App;

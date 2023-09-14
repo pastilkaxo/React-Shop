@@ -55,3 +55,25 @@ line-height: normal;
 .main-links ul li a img:hover {
     transform: scale(1.2);
 }
+
+@media screen and (max-width:600px) {
+    .foot-container {
+        height: auto; 
+        padding: 20px; 
+    }
+
+    .main-links ul {
+        flex-direction: row; 
+        justify-content: center; 
+    }
+
+    .main-info p {
+        display: none;
+    }
+    .foot-summury p {
+        font-size: 20px;
+    }
+    .foot-summury p small {
+        font-size: 20px;
+    }
+}

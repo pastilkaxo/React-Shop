@@ -163,3 +163,10 @@
 .cart-empty button:active {
     background-color: black;
 }
+@media screen and (max-width: 600px) {
+    .drawer {
+        width: 100%; /* Полная ширина на мобильных устройствах */
+        box-shadow: none; /* Убираем тень на мобильных устройствах, если нужно */
+        padding: 15px; /* Меньшие отступы для мобильных устройств */
+    }
+}
