@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 import Header from "./Header/Header";
 import Main from "./Main/Main";
 import Footer from "./Footer/Footer";
 import Cart from "./Cart/Cart";
-import { Bikes } from "./AllData";
+import Bikes  from "./Data.json";
 import { SnackbarProvider } from "notistack";
 import Login from "./Accout/Login";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
@@ -18,9 +18,10 @@ function App (){
   const [bikes,setBikes] = useState(Bikes); // !   ...
   const [showMainContent, setShowMainContent] = useState(true); 
   const [displayFavContainer, setDisplayFavContainer] = useState(true);
+ 
+
   
-
-
+ 
 
    
 
@@ -41,9 +42,11 @@ const toggleFavContainer = () => {
        const isAlreadyFav = favorite.some((favBike) => favBike.id === bike.id);
        if(isAlreadyFav){
         delFavItem(bike.id);
+
        }
        else {
-        setFavorite((prev) => ([...prev,bike]) )  
+    setFavorite((prev) => ([...prev,bike]) )
+
        }
   }
 
@@ -111,7 +114,7 @@ return(
       <Cart {...cartProps} />
     </div>
     <Routes>
-      <Route path="/login" element={<Login />} /> {/* Use 'element' to specify the component */}
+      <Route path="/login" element={<Login />} /> 
       <Route path="/" element={<>
         <Header {...headerProps} />
         <SnackbarProvider maxSnack={3}>

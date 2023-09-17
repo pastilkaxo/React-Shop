@@ -90,4 +90,11 @@ align-items: center;
         justify-content: center;
         margin-top: -250px;
     }
+    .favorite .fav-length{
+        width: 25px;
+        text-align: center;
+    }
+    .cart .cart-length {
+        width: 25px;
+    }
 }
