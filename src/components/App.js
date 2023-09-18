@@ -3,7 +3,7 @@ import Header from "./Header/Header";
 import Main from "./Main/Main";
 import Footer from "./Footer/Footer";
 import Cart from "./Cart/Cart";
-import Bikes  from "./Data.json";
+import BikesData  from "./AllData.json";
 import { SnackbarProvider } from "notistack";
 import Login from "./Accout/Login";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
@@ -15,12 +15,34 @@ function App (){
   const [cart,setCart] = useState([]);
   const [added,setAdded] = useState([]); // !
   const [favorite,setFavorite] = useState([])
-  const [bikes,setBikes] = useState(Bikes); // !   ...
+  const [bikes,setBikes] = useState(BikesData); // !   ...
   const [showMainContent, setShowMainContent] = useState(true); 
   const [displayFavContainer, setDisplayFavContainer] = useState(true);
  
 
-  
+ //  FILTER CATEGORIES ARRAYS : 
+ 
+   const handleCategoryChange = (category) => {
+        let jsonData;
+        switch(category) {
+          case "Bikes":
+            jsonData = require("./Bikes.json");
+            break;
+          case "Rudders":
+            jsonData = require("./Rudders.json");
+            break;
+          case "Frames":
+            jsonData = require("./Frames.json");
+            break;
+          default:
+            jsonData = require("./AllData.json");
+            break;
+        }
+         setBikes(jsonData); 
+         
+   }
+
+ // -----------------------
  
 
    
@@ -104,6 +126,7 @@ const mainProps = {
   addFavBtn: addFavBtn,
   favorite: favorite,
   delFavItem: delFavItem,
+  handleCategoryChange: handleCategoryChange,
 };
 
 
