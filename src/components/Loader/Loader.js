@@ -4,7 +4,9 @@ import Favorit from '../Favorite/Favorite';
 import './style/Loader.css'
 
 export default function Loader({favorite,displayFavContainer, delFavItem, 
-   added ,addToCart, toggleFavContainer,displayMain , bikeFillColors}) {
+   added ,addToCart, toggleFavContainer,displayMain ,
+    bikeFillColors,  handleClickVariant,}) {
+      
 const [isLoading ,setIsLoading] = useState(true);
 
  useEffect(
@@ -33,6 +35,7 @@ const [isLoading ,setIsLoading] = useState(true);
    addToCart:addToCart,
    displayMain:displayMain,
    bikeFillColors:bikeFillColors,
+   handleClickVariant:handleClickVariant,
  } 
 
 

@@ -1,4 +1,4 @@
-import React, {  useState } from "react";
+import React, { useState } from "react";
 import Header from "./Header/Header";
 import Main from "./Main/Main";
 import Footer from "./Footer/Footer";
@@ -7,18 +7,21 @@ import BikesData  from "./AllData.json";
 import { SnackbarProvider } from "notistack";
 import Login from "./Accout/Login";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-
-
+import { useDispatch, useSelector } from "react-redux";
+import { setCart } from "./Redux/Store";
 
 function App (){
   const [display,setDisplay] = useState('none');
-  const [cart,setCart] = useState([]);
+  // const [cart,setCart] = useState([]);
   const [added,setAdded] = useState([]); // !
   const [favorite,setFavorite] = useState([])
-  const [bikes,setBikes] = useState(BikesData); // !   ...
+  const [bikes,setBikes] = useState(BikesData); 
   const [showMainContent, setShowMainContent] = useState(true); 
   const [displayFavContainer, setDisplayFavContainer] = useState(true);
- 
+
+  const dispatch = useDispatch();
+  const cart = useSelector((state) => state.cart);
+
 
  //  FILTER CATEGORIES ARRAYS : 
  
@@ -38,9 +41,8 @@ function App (){
             jsonData = require("./AllData.json");
             break;
         }
-         setBikes(jsonData); 
-         
-   }
+         setBikes(jsonData);  
+   } 
 
  // -----------------------
  
@@ -56,9 +58,16 @@ const toggleFavContainer = () => {
     setShowMainContent(!showMainContent);
   };
 
+  // const addToCart = (bike) => {
+  //         setCart((prev) => ([...prev,bike]))
+  //       }
   const addToCart = (bike) => {
-          setCart((prev) => ([...prev,bike]))
-        }
+    dispatch(setCart([...cart, bike]));
+  }
+
+  const clearCart = () => {
+    dispatch(setCart([]))
+  }
 
   const addFavBtn = (bike) => {
        const isAlreadyFav = favorite.some((favBike) => favBike.id === bike.id);
@@ -72,16 +81,27 @@ const toggleFavContainer = () => {
        }
   }
 
+  // const delFromCart = (id) => {
+  //        setCart((prevCart) => {
+  //               const idx = prevCart.findIndex((bike) => bike.id === id);
+  //               if(idx !== -1){
+  //                 const newArray = [...prevCart.slice(0,idx),...prevCart.slice(idx+1)];
+  //                 return newArray;
+  //               }
+  //                  return prevCart;
+  //        })    
+  // }
+
+  // REDUX: 
   const delFromCart = (id) => {
-         setCart((prevCart) => {
-                const idx = prevCart.findIndex((bike) => bike.id === id);
-                if(idx !== -1){
-                  const newArray = [...prevCart.slice(0,idx),...prevCart.slice(idx+1)];
-                  return newArray;
-                }
-                   return prevCart;
-         })    
+    const idx = cart.findIndex((bike) => bike.id === id);
+    if (idx !== -1) {
+      const newArray = [...cart.slice(0, idx), ...cart.slice(idx + 1)];
+      dispatch(setCart(newArray)); 
+    }
   }
+// --------------------------
+  
  const delFavItem = (id) => {
   setFavorite((prevFav) => {
     const idx = prevFav.findIndex((bike) => bike.id === id);
@@ -92,6 +112,12 @@ const toggleFavContainer = () => {
        return prevFav;
 }) 
  }
+
+
+ 
+
+
+
   
   const displayBlock = () =>  {
           setDisplay('block');
@@ -113,6 +139,7 @@ const cartProps = {
   bikes:cart,
   displayNone:displayNone,
   delFromCart:delFromCart,
+  clearCart:clearCart,
 }
 
 const mainProps = {
@@ -129,9 +156,8 @@ const mainProps = {
   handleCategoryChange: handleCategoryChange,
 };
 
-
 return(
-  <Router>
+<Router>
   <div className="app-body">
     <div className="overlay" style={{ display: display }}>
       <Cart {...cartProps} />

@@ -104,7 +104,6 @@
      font-size: 16px;
      font-weight: 100;
      transition: background-color 0.2s ease-in-out;
-
       }
 .cartTotalBlock .greenBtn:hover{
     background-color: #8cbe00;
@@ -163,6 +162,32 @@
 .cart-empty button:active {
     background-color: black;
 }
+
+.clear-btn {
+    background-color: rgb(255, 87, 87);
+    border-radius: 12px;
+    height: 50px;
+    color: white;
+    border: none;
+}
+
+.clear-btn:hover {
+    background-color: red;
+}
+.clear-btn:hover img {
+   transform: scale(1.1);
+}
+
+.cart-btns {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  
+}
+
+
+
 @media screen and (max-width: 600px) {
     .drawer {
         width: 100%; /* Полная ширина на мобильных устройствах */

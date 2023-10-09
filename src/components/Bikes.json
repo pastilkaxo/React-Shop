@@ -3,21 +3,25 @@
     {
     "name":"BMX Bike 1" , 
     "cost":200 ,
-     "id":1
+     "id":1,
+     "img":"./img/bike1.png"
     },
     {
     "name":"BMX Bike 2",
      "cost":150 ,
-      "id":2
+      "id":2,
+      "img":"./img/bike2.png"
     },
     {
     "name":"BMX Bike 3" ,
      "cost":99 ,
-      "id":3
+      "id":3,
+      "img":"./img/bike3.png"
     },
     {
     "name":"BMX Bike 4" ,
      "cost":99 ,
-      "id":4
+      "id":4,
+      "img":"./img/bike4.png"
     }
 ]

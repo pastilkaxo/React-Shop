@@ -5,12 +5,12 @@ footer {
 }
 
 .foot-container {
+    position: relative;
 width: 100%;
 background-color: #9dd558;
 height: 200px;
 border-bottom-right-radius: 20px;
 border-bottom-left-radius: 20px;
-margin-top: 5rem;
 display: flex;
 align-items: center;
 justify-content: space-evenly;
