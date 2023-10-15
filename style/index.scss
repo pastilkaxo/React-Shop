@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Lilita+One&display=swap');
+*{
+    transition: 0.15s;
+    box-sizing: border-box;
+    color: #000;
+    font-family: 'Libre Baskerville', serif;
+    font-family: 'Lilita One', cursive;
+}
+body,
+html {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  background: linear-gradient(-45deg, #7cdde0, #d5e04b, #23a6d5, #16d7de);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+body {
+display: flex;
+justify-content: center;
+padding-top: 85px;
+
+  //background-image: url("../img/wallpaper.jpg");
+  //background-size:contain;
+  //background-repeat: no-repeat;
+  //background-attachment: fixed;
+#root {
+width: 1080px;
+height: 100%;
+border-radius: 20px;
+background: #FFF;
+box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.04);
+margin-bottom: 50px;
+
+    }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+
+@media screen and (max-width:600px) {
+  #root {
+    width: 100%;
+    border-radius: 50px;
+  }
+
+}
