@@ -1,47 +1,112 @@
-import './style/Login.css'
+import './style/Login.css';
+import styles from "./style/User.module.css";
 import { Link } from "react-router-dom";
-import React, {useEffect, useRef} from 'react';
+import React, {useRef, useState , useEffect} from 'react';
 import { useLocalStorage } from '@uidotdev/usehooks';
 
-
 export default function Login(){
-const [user , saveUser] = useLocalStorage("userName" , []);
+    const [userName, saveUserName] = useLocalStorage("userName");
+    const [email, saveEmail] = useLocalStorage('email');
+    const [password, savePassword] = useLocalStorage('password');
+    const [isRegistered, setIsRegistered] = useLocalStorage('isRegistered', false);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-// useEffect(() => {
-//         localStorage  
-
-// },[])
 
 
-    const usernameRef = useRef(null); 
-    const emailRef = useRef(null);
-
+    const usernameRef = useRef("");
+    const emailRef = useRef("");
+    const passRef = useRef("");
+    const recoverPassRef = useRef("")
     const handleSubmit = (e) => {
       e.preventDefault();
-      console.log(`Username: ${usernameRef.current.value} \n Email: ${emailRef.current.value}`);
+        const username = usernameRef.current.value;
+        const email = emailRef.current.value;
+        const password = passRef.current.value;
+        const recPass = recoverPassRef.current.value;
+      console.log(username , email , password)
+
+        if (!username|| !email || !password || password !== recPass) {
+            return alert("Please fill in all fields.");
+        }
+
+      saveUserName(username);
+      saveEmail(email);
+      savePassword(password)
+      setIsLoggedIn(true);
+        setIsRegistered(true);
+
     };
+
+    const handleLogout = () => {
+        saveUserName('');
+        saveEmail('');
+        savePassword('');
+        setIsRegistered(false);
+        setIsLoggedIn(false)
+    };
+
+
+    useEffect(() => {
+        if (isRegistered && userName && email && password === recoverPassRef.current.value && password !== "") {
+            setIsRegistered(true)
+            setIsLoggedIn(true)
+        }
+        else {
+            setIsRegistered(false)
+            setIsLoggedIn(false)
+        }
+    }, []);
+
+
+   if(isLoggedIn) {
+       return (
+           <>
+               <div className="header">
+                   <div className="logo">
+                       <img src="./img/logo.png" alt=""/>
+                       <span className="summury">
+                      <p>BM SHOP<small>BMX BIKE STORE</small></p>
+                      </span>
+                   </div>
+
+               </div>
+               <div className={styles.user_profile}>
+                   <div className={styles.user_profile_data}>
+                       <h2>Username:<br/> {userName}</h2>
+                       <p>Email: <br/> {email}</p>
+                       <button onClick={handleLogout}>Logout</button>
+                   </div>
+               </div>
+           </>
+       );
+   }
+
+
+
+
+
 
 return(
     <div className="login-container">
     <div className='stroke-back'><Link to="/" className="go-back-link"><img className='empty-btn-img' src='./img/go-back.png' alt=''/><p className='back-sum'>Back</p></Link> </div>
     <div className="login-form">
-        <h2>Register</h2>
+        <h2>Registration</h2>
         <form>
             <div className="form-group">
                 <label htmlFor="username">User name:</label>
-                <input ref={usernameRef} type="text" id="username" name="username" placeholder="Enter your username" required/>
+                <input ref={usernameRef}  type="text" id="username" name="username" placeholder="Enter your username" required/>
             </div>
             <div className="form-group">
                 <label htmlFor="email">Email:</label>
-                <input ref={emailRef} type="email" id="email" name="email" placeholder="Enter email" required/>
+                <input ref={emailRef}  type="email" id="email" name="email" placeholder="Enter email" required/>
             </div>
             <div className="form-group">
                 <label htmlFor="password">Password:</label>
-                <input type="password" id="password" name="password" placeholder="Password" required/>
+                <input ref={passRef} type="password" id="password" name="password" placeholder="Password" required/>
             </div>
             <div className="form-group">
                 <label htmlFor="confirm-password">Confirm password:</label>
-                <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm password" required/>
+                <input ref={recoverPassRef} type="password" id="confirm-password" name="confirm-password" placeholder="Confirm password" required/>
             </div>
             <button type="submit" onClick={handleSubmit}>Confirm</button>
         </form>

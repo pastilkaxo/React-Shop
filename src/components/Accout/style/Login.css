@@ -9,7 +9,7 @@
     background-color: #f7f7f7;
     position: relative; 
     padding: 20px; 
-    
+    border-radius: 20px;
   
 }
 
@@ -110,6 +110,11 @@ button:hover {
     font-weight: 100;
     font-size: 18px;
   }
+
+
+
+
+
 
   @media screen and (max-width:600px) {
     .login-form {

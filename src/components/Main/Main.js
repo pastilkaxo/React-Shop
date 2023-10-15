@@ -95,6 +95,7 @@ const Main = ({ bikes,addToCart, addFavBtn , added,
           ))}
         </div>
         </>}
+
     </main>
   )
 }

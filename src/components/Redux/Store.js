@@ -1,12 +1,17 @@
 // store.js
 import { configureStore, createSlice } from "@reduxjs/toolkit";
 
-// Define the initial state
+// упрощающая настройку хранилища с настройками по умолчанию.
 const initialState = {
   cart: [],
+  favorite: [],
+  // categories: [],
 };
 
-// Create a slice with reducers and actions
+// принимает объект, содержащий редуктор, название части состояния 
+// (state slice), начальное значение состояния, и автоматически генерирует
+// частичный редуктор с соответствующими создателями и типами операции
+
 const appSlice = createSlice({
   name: "app",
   initialState,
@@ -14,15 +19,19 @@ const appSlice = createSlice({
     setCart: (state, action) => {
       state.cart = action.payload;
     },
+    setFavorite:(state,action) => {
+      state.favorite = action.payload;
+    }
+    
   },
 });
 
-// Export actions
+// actions
 export const {
-  setCart,
+  setCart,setFavorite
 } = appSlice.actions;
 
-// Configure the store
+// 
 const store = configureStore({
   reducer: appSlice.reducer,
 });

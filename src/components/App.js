@@ -6,43 +6,49 @@ import Cart from "./Cart/Cart";
 import BikesData  from "./AllData.json";
 import { SnackbarProvider } from "notistack";
 import Login from "./Accout/Login";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import {BrowserRouter as Router,  Route, Routes} from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { setCart } from "./Redux/Store";
+import { setCart, setFavorite } from "./Redux/Store";
+
 
 function App (){
   const [display,setDisplay] = useState('none');
   // const [cart,setCart] = useState([]);
   const [added,setAdded] = useState([]); // !
-  const [favorite,setFavorite] = useState([])
+  // const [favorite,setFavorite] = useState([])
   const [bikes,setBikes] = useState(BikesData); 
   const [showMainContent, setShowMainContent] = useState(true); 
   const [displayFavContainer, setDisplayFavContainer] = useState(true);
 
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
+  const favorite = useSelector((state) => state.favorite)
+
+
+
+
 
 
  //  FILTER CATEGORIES ARRAYS : 
  
-   const handleCategoryChange = (category) => {
-        let jsonData;
-        switch(category) {
-          case "Bikes":
-            jsonData = require("./Bikes.json");
-            break;
-          case "Rudders":
-            jsonData = require("./Rudders.json");
-            break;
-          case "Frames":
-            jsonData = require("./Frames.json");
-            break;
-          default:
-            jsonData = require("./AllData.json");
-            break;
-        }
-         setBikes(jsonData);  
-   } 
+ const handleCategoryChange = (category) => {
+  let jsonData;
+  switch(category) {
+    case "Bikes":
+      jsonData = require("./Bikes.json");
+      break;
+    case "Rudders":
+      jsonData = require("./Rudders.json");
+      break;
+    case "Frames":
+      jsonData = require("./Frames.json");
+      break;
+    default:
+      jsonData = require("./AllData.json");
+      break;
+  }
+   setBikes(jsonData);  
+} 
 
  // -----------------------
  
@@ -76,7 +82,8 @@ const toggleFavContainer = () => {
 
        }
        else {
-    setFavorite((prev) => ([...prev,bike]) )
+    // setFavorite((prev) => ([...prev,bike]) )
+    dispatch(setFavorite([...favorite,bike]))
 
        }
   }
@@ -103,14 +110,15 @@ const toggleFavContainer = () => {
 // --------------------------
   
  const delFavItem = (id) => {
-  setFavorite((prevFav) => {
-    const idx = prevFav.findIndex((bike) => bike.id === id);
+  // setFavorite((prevFav) => {
+    const idx = favorite.findIndex((bike) => bike.id === id);
     if(idx !== -1){
-      const newFavArray = [...prevFav.slice(0,idx),...prevFav.slice(idx+1)];
-      return newFavArray;
+      const newFavArray = [...favorite.slice(0,idx),...favorite.slice(idx+1)];
+      // return newFavArray;
+      dispatch(setFavorite(newFavArray))
     }
-       return prevFav;
-}) 
+    
+// }) 
  }
 
 
@@ -156,6 +164,10 @@ const mainProps = {
   handleCategoryChange: handleCategoryChange,
 };
 
+const loginProps = {
+  bikes: bikes,
+}
+
 return(
 <Router>
   <div className="app-body">
@@ -163,13 +175,14 @@ return(
       <Cart {...cartProps} />
     </div>
     <Routes>
-      <Route path="/login" element={<Login />} /> 
+      <Route path="/login" element={<Login {...loginProps}/>} />
       <Route path="/" element={<>
         <Header {...headerProps} />
         <SnackbarProvider maxSnack={3}>
           <Main {...mainProps} />
         </SnackbarProvider>
         <Footer />
+
       </>} />
     </Routes>
   </div>
