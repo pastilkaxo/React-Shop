@@ -4,7 +4,7 @@ import { TextField } from "@mui/material";
 import Categories from './Categories' 
 import Loader from "../Loader/Loader";
 import { useSnackbar } from 'notistack';
-
+import BikePage from "../BikePage/BikePage";
 
 const Main = ({ bikes,addToCart, addFavBtn , added,
   favorite,displayFavContainer, showMainContent , delFavItem ,
@@ -13,13 +13,14 @@ const Main = ({ bikes,addToCart, addFavBtn , added,
    const [searchResult, setSearchResult] = useState('');
    const [bikeFillColors, setBikeFillColors] = useState(bikes.map(() => "black"));
    const { enqueueSnackbar } = useSnackbar();
+   const [showInfo , setShowInfo] = useState("none")
 
    const handleClickVariant = (variant) => () => {
-    enqueueSnackbar('Bike added!', { 
-      variant , 
-      ContentProps: {
-        className: 'custom-snackbar'
-      },
+    enqueueSnackbar('Bike added!',{
+      variant ,
+      // ContentProps: {
+      //   className: 'custom-snackbar'
+      // },
       autoHideDuration:1500,
     });
   };
@@ -34,7 +35,13 @@ const Main = ({ bikes,addToCart, addFavBtn , added,
            
   },[bikes,favorite])
 
-   
+   const handleGetBikeInfo = () => {
+           setShowInfo("block");
+   }
+
+
+
+
    
    
    // --------------------------------
@@ -54,11 +61,15 @@ const Main = ({ bikes,addToCart, addFavBtn , added,
   return (
     <main>
       <Loader {...loaderProps}/>
-         {showMainContent &&      
+
+        <div style={{ display: showInfo }}>
+            <BikePage bikes={bikes} />
+        </div>
+         {showMainContent &&
           <>
           <Categories handleCategoryChange = {handleCategoryChange} selectedCategory={selectedCategory}/>
           <div className="search-panel">
-        <h1>All Bikes:</h1>
+        <h1>Find out:</h1>
         <TextField
           label="Search"
           InputProps={{
@@ -80,8 +91,8 @@ const Main = ({ bikes,addToCart, addFavBtn , added,
                 {/* <img src={`./img/bike${bike.id}.png`} alt="" /> */}
                 <img src={bike.img} alt="" />
               </div>
-              <div className="card-info">
-                <p className="item-name">{bike.name}</p>
+              <div className="card-info" onClick={handleGetBikeInfo}>
+                <p className="item-name" >{bike.name}</p>
               </div>
               <div className="add-tools">
                 <span className="bike-cost">

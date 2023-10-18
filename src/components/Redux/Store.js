@@ -1,4 +1,3 @@
-// store.js
 import { configureStore, createSlice } from "@reduxjs/toolkit";
 
 // упрощающая настройку хранилища с настройками по умолчанию.

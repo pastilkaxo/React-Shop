@@ -19,14 +19,12 @@ function App (){
   const [bikes,setBikes] = useState(BikesData); 
   const [showMainContent, setShowMainContent] = useState(true); 
   const [displayFavContainer, setDisplayFavContainer] = useState(true);
+  const [boughtItems, setBoughtItems] = useState([]);
+
 
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
   const favorite = useSelector((state) => state.favorite)
-
-
-
-
 
 
  //  FILTER CATEGORIES ARRAYS : 
@@ -53,9 +51,6 @@ function App (){
  // -----------------------
  
 
-   
-
-
 const toggleFavContainer = () => {
   setDisplayFavContainer(!displayFavContainer);
 };
@@ -74,6 +69,13 @@ const toggleFavContainer = () => {
   const clearCart = () => {
     dispatch(setCart([]))
   }
+  const addToBuys = () => {
+      cart.forEach((bike) => {
+          setBoughtItems((prevItems) => [...prevItems,bike])
+      });
+      dispatch(setCart([]))
+  }
+
 
   const addFavBtn = (bike) => {
        const isAlreadyFav = favorite.some((favBike) => favBike.id === bike.id);
@@ -121,12 +123,6 @@ const toggleFavContainer = () => {
 // }) 
  }
 
-
- 
-
-
-
-  
   const displayBlock = () =>  {
           setDisplay('block');
   }
@@ -148,6 +144,7 @@ const cartProps = {
   displayNone:displayNone,
   delFromCart:delFromCart,
   clearCart:clearCart,
+    addToBuys :addToBuys,
 }
 
 const mainProps = {
@@ -166,6 +163,7 @@ const mainProps = {
 
 const loginProps = {
   bikes: bikes,
+    boughtItems: boughtItems,
 }
 
 return(

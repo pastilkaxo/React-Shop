@@ -1,6 +1,6 @@
 import './style/Cart.css';
 
- function Cart({bikes,displayNone ,delFromCart,clearCart}){
+ function Cart({bikes,displayNone ,delFromCart,clearCart,addToBuys}){
 return(
     
            <div className='drawer'>
@@ -29,7 +29,7 @@ return(
                         <li><span>Tax 5%</span><div></div><b>{(bikes.reduce((total, element) => total + element.cost, 0) * 0.05)} $</b></li>
                        </ul>
                                 <div className='cart-btns'>
-                                <button className='greenBtn'>Make offer <img src='./img/arrow.png' alt=''/></button>
+                                <button className='greenBtn' onClick={addToBuys}>Make offer <img src='./img/arrow.png' alt=''/></button>
                       <button className='clear-btn' onClick={clearCart}><img src='./img/trash.png'/></button>
                                 </div>
                             </div>

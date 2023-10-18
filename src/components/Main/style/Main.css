@@ -15,7 +15,7 @@
  }
  .search-panel {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     margin-left: 65px;
     margin-right: 65px;
     margin-bottom: 50px;

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import React, {useRef, useState , useEffect} from 'react';
 import { useLocalStorage } from '@uidotdev/usehooks';
 
-export default function Login(){
+export default function Login({boughtItems}){
     const [userName, saveUserName] = useLocalStorage("userName");
     const [email, saveEmail] = useLocalStorage('email');
     const [password, savePassword] = useLocalStorage('password');
@@ -17,6 +17,8 @@ export default function Login(){
     const emailRef = useRef("");
     const passRef = useRef("");
     const recoverPassRef = useRef("")
+    const usersInfo = [];
+
     const handleSubmit = (e) => {
       e.preventDefault();
         const username = usernameRef.current.value;
@@ -35,14 +37,19 @@ export default function Login(){
       setIsLoggedIn(true);
         setIsRegistered(true);
 
+        usersInfo.push({username,email,password})
+        console.log(usersInfo)
+
     };
 
+
+
     const handleLogout = () => {
-        saveUserName('');
-        saveEmail('');
-        savePassword('');
-        setIsRegistered(false);
-        setIsLoggedIn(false)
+            saveUserName('');
+            saveEmail('');
+            savePassword('');
+            setIsRegistered(false);
+            setIsLoggedIn(false);
     };
 
 
@@ -58,6 +65,16 @@ export default function Login(){
     }, []);
 
 
+    let tab = [];
+        tab.push(
+            <div>
+                { userName === "Vlad" ? <img className={styles.user_profile_img}   src="./img/avatar1.png" alt="Vlad"/> : <img  className={styles.user_profile_img} src="./img/avatar2.jpg" alt=" "/>}
+            </div>
+        )
+
+
+
+
    if(isLoggedIn) {
        return (
            <>
@@ -71,12 +88,35 @@ export default function Login(){
 
                </div>
                <div className={styles.user_profile}>
+                   {tab}
                    <div className={styles.user_profile_data}>
                        <h2>Username:<br/> {userName}</h2>
                        <p>Email: <br/> {email}</p>
-                       <button onClick={handleLogout}>Logout</button>
+                       <div className={styles.user_profile_data_buttons}>
+                           <button onClick={handleLogout}>Logout</button>
+                       </div>
+
                    </div>
                </div>
+               {boughtItems.length !== 0 ? <h2 className={styles.if_bought}>Purshases:</h2> : <></>}
+               <div className={styles.purss_items}>
+
+                   {boughtItems.length === 0 ? <div className={styles.nth_bought}> <img src="./img/favorite.png"/> <h2>Nothing bought.</h2> </div>  :
+                       boughtItems.map((bike) => (
+
+                               <div className='cartItem' key={bike.id}>
+                                   <img  src={bike.img} alt='' />
+                                   <div>
+                                       <p>{bike.name}<small>{bike.cost}$</small></p>
+
+                                   </div>
+
+                               </div>
+
+                           ))
+                   }
+               </div>
+
            </>
        );
    }
