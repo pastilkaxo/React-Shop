@@ -52,6 +52,9 @@
     width: 32px;
    height: 32px;
  }
+ .bike_link_info {
+     text-decoration: none;
+ }
  
  .bike-favorite img {
  position:relative;

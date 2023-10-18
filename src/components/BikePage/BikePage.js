@@ -9,7 +9,7 @@ export  default  function BikePage({bikes}){
    return(
        <div>
            <h1>Bike info:</h1>
-               <p>Bike name {cardToShow.name}</p>
+               <p>Name {cardToShow.name}</p>
                <p>Cost: {cardToShow.cost}</p>
            <Link to="/"><p>Back</p></Link>
        </div>

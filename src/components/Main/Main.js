@@ -5,6 +5,7 @@ import Categories from './Categories'
 import Loader from "../Loader/Loader";
 import { useSnackbar } from 'notistack';
 import BikePage from "../BikePage/BikePage";
+import  {Link} from "react-router-dom";
 
 const Main = ({ bikes,addToCart, addFavBtn , added,
   favorite,displayFavContainer, showMainContent , delFavItem ,
@@ -13,7 +14,6 @@ const Main = ({ bikes,addToCart, addFavBtn , added,
    const [searchResult, setSearchResult] = useState('');
    const [bikeFillColors, setBikeFillColors] = useState(bikes.map(() => "black"));
    const { enqueueSnackbar } = useSnackbar();
-   const [showInfo , setShowInfo] = useState("none")
 
    const handleClickVariant = (variant) => () => {
     enqueueSnackbar('Bike added!',{
@@ -35,9 +35,7 @@ const Main = ({ bikes,addToCart, addFavBtn , added,
            
   },[bikes,favorite])
 
-   const handleGetBikeInfo = () => {
-           setShowInfo("block");
-   }
+
 
 
 
@@ -62,9 +60,6 @@ const Main = ({ bikes,addToCart, addFavBtn , added,
     <main>
       <Loader {...loaderProps}/>
 
-        <div style={{ display: showInfo }}>
-            <BikePage bikes={bikes} />
-        </div>
          {showMainContent &&
           <>
           <Categories handleCategoryChange = {handleCategoryChange} selectedCategory={selectedCategory}/>
@@ -91,9 +86,11 @@ const Main = ({ bikes,addToCart, addFavBtn , added,
                 {/* <img src={`./img/bike${bike.id}.png`} alt="" /> */}
                 <img src={bike.img} alt="" />
               </div>
-              <div className="card-info" onClick={handleGetBikeInfo}>
-                <p className="item-name" >{bike.name}</p>
-              </div>
+               <Link to={`./bikePage/${bike.id}`} className="bike_link_info">
+                   <div className="card-info" >
+                       <p className="item-name" >{bike.name}</p>
+                   </div>
+               </Link>
               <div className="add-tools">
                 <span className="bike-cost">
                   <p><small>COST:</small>{bike.cost}$</p>

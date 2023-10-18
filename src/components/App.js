@@ -9,7 +9,7 @@ import Login from "./Accout/Login";
 import {BrowserRouter as Router,  Route, Routes} from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setCart, setFavorite } from "./Redux/Store";
-
+import BikePage from "./BikePage/BikePage";
 
 function App (){
   const [display,setDisplay] = useState('none');
@@ -166,6 +166,11 @@ const loginProps = {
     boughtItems: boughtItems,
 }
 
+const bikeProps = {
+    bikes:bikes,
+}
+
+
 return(
 <Router>
   <div className="app-body">
@@ -174,6 +179,7 @@ return(
     </div>
     <Routes>
       <Route path="/login" element={<Login {...loginProps}/>} />
+        <Route path="/bikePage/:id" element={<BikePage {...bikeProps}/>} />
       <Route path="/" element={<>
         <Header {...headerProps} />
         <SnackbarProvider maxSnack={3}>
