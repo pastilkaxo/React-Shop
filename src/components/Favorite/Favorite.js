@@ -1,5 +1,6 @@
 import "./style/Favorit.css"
 import React, {useState} from "react"
+import {Link} from "react-router-dom";
 
 export default function Favorit({favorite,delFavItem,added ,addToCart,toggleFavContainer,displayMain,bikeFillColors,  handleClickVariant,}) {
      
@@ -29,9 +30,11 @@ export default function Favorit({favorite,delFavItem,added ,addToCart,toggleFavC
                 </svg>
                 <img src={bike.img} alt="" />
               </div>
+                <Link to={`./bikePage/${bike.id}`} className="bike_link_info">
               <div className="card-info">
                 <p className="item-name">{bike.name}</p>
               </div>
+                </Link>
               <div className="add-tools">
                 <span className="bike-cost">
                   <p><small>COST:</small>{bike.cost}$</p>

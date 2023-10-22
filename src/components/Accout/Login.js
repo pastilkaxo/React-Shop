@@ -106,8 +106,10 @@ export default function Login({boughtItems}){
 
                                <div className='cartItem' key={bike.id}>
                                    <img  src={bike.img} alt='' />
+
                                    <div>
-                                       <p>{bike.name}<small>{bike.cost}$</small></p>
+                                       <Link to={`/bikePage/${bike.id}`} className="bike_link_info">
+                                           <p>{bike.name}</p> </Link> <small>{bike.cost}$</small>
 
                                    </div>
 

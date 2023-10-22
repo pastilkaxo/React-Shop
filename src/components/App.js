@@ -101,7 +101,6 @@ const toggleFavContainer = () => {
   //        })    
   // }
 
-  // REDUX: 
   const delFromCart = (id) => {
     const idx = cart.findIndex((bike) => bike.id === id);
     if (idx !== -1) {
@@ -168,6 +167,8 @@ const loginProps = {
 
 const bikeProps = {
     bikes:bikes,
+    added:added,
+    addToCart:addToCart,
 }
 
 
@@ -179,7 +180,7 @@ return(
     </div>
     <Routes>
       <Route path="/login" element={<Login {...loginProps}/>} />
-        <Route path="/bikePage/:id" element={<BikePage {...bikeProps}/>} />
+        <Route path="/bikePage/:id" element={ <SnackbarProvider maxSnack={3}> <BikePage {...bikeProps}/> </SnackbarProvider>} />
       <Route path="/" element={<>
         <Header {...headerProps} />
         <SnackbarProvider maxSnack={3}>

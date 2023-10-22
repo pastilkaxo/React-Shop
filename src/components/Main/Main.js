@@ -4,7 +4,6 @@ import { TextField } from "@mui/material";
 import Categories from './Categories' 
 import Loader from "../Loader/Loader";
 import { useSnackbar } from 'notistack';
-import BikePage from "../BikePage/BikePage";
 import  {Link} from "react-router-dom";
 
 const Main = ({ bikes,addToCart, addFavBtn , added,
@@ -36,12 +35,6 @@ const Main = ({ bikes,addToCart, addFavBtn , added,
   },[bikes,favorite])
 
 
-
-
-
-
-   
-   
    // --------------------------------
 
    const loaderProps = {

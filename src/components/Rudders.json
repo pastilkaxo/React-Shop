@@ -3,27 +3,27 @@
         "name":"BMX rudder Cult Crew",
         "cost":200 ,
         "id":1,
-        "img":"./img/bike5.png"
+        "img":"/img/bike5.png"
 
     },
     {
       "name":"BMX rudder BSD Grime 4pc",
       "cost":200,
       "id":2,
-      "img":"./img/bike6.png"
+      "img":"/img/bike6.png"
   },
   {
     "name":"BMX rudder BSD Freedom",
     "cost":200 ,
     "id":3,
-    "img":"./img/bike7.png"
+    "img":"/img/bike7.png"
 
 },
 {
   "name":"BMX rudder KINK Rex",
   "cost":200,
   "id":4,
-  "img":"./img/bike8.png"
+  "img":"/img/bike8.png"
 
 }
 ]

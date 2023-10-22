@@ -18,7 +18,7 @@ return(
                                 <p>{bike.name}<small>{bike.cost}$</small></p>
                                 
                              </div>
-                          <img className='remover' src='./img/remove.svg' onClick={()=>{delFromCart(bike.id)}} alt=''/>
+                          <img className='remover' src='/img/remove.svg' onClick={()=>{delFromCart(bike.id)}} alt=''/>
                          </div>
              ))}
                        </div>

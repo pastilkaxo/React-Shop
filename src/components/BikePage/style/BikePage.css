@@ -1,0 +1,105 @@
+.bike_container {
+    width: 100%;
+    display:  flex;
+  flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 50px;
+ }
+
+.info_sum{
+text-align: center;
+    font-weight: 100;
+text-transform: uppercase;
+}
+
+.inner_info_sum{
+    font-weight: 100;
+    text-transform: uppercase;
+}
+
+
+
+button {
+    background-color: #9dd558;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: 100;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #8cbe00;
+}
+
+.go-back{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+    font-weight: 100;
+    font-size: 1rem;
+    width: 150px;
+    height: 50px;
+    background-color: #9dd558;
+    border-radius: 15px;
+    transition: display 5s ease-in-out;
+    transition: transfrom 0.2s ease-in-out;
+    transition: background-color 0.2s ease-in-out;
+}
+.back-sum{
+    display: none;
+}
+.go-back img{
+    width: 18px;
+    height: 18px;
+}
+.go-back:hover img{
+    transform: translateX(-35px);
+
+}
+.go-back:hover{
+    background-color: #8cbe00;
+}
+.go-back:hover .back-sum{
+    display: block;
+    text-align: center;
+    color: white;
+    font-weight: 100;
+    font-size: 18px;
+}
+.link_back {
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    margin-bottom: 20px;
+}
+
+
+.add_but {
+    display: flex;
+    justify-content: center;
+}
+
+.cart_bt p {
+  text-transform: uppercase;
+}
+
+
+@media screen and (max-width:600px) {
+    .bike_container {
+        flex-direction: column;
+    }
+    .info_img {
+        width: 300px;
+        height: 250px;
+    }
+    .go-back {
+        width: 90%;
+    }
+}

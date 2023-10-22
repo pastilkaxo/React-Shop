@@ -3,28 +3,28 @@
         "name":"BMX Frame Cult 2 Short IC",
         "cost":200 ,
         "id":1,
-        "img":"./img/bike9.png"
+        "img":"/img/bike9.png"
       
       },
       {
         "name":"BMX Frame KINK Williams",
         "cost":200 ,
         "id":2,
-        "img":"./img/bike10.png"
+        "img":"/img/bike10.png"
       
       },
       {
         "name":"BMX Frame Subrosa Rose 20.9 ",
         "cost":200 ,
         "id":3,
-        "img":"./img/bike11.png"
+        "img":"/img/bike11.png"
       
       },
       {
         "name":"BMX Frame Fiend Raekes 20,8",
         "cost":200 ,
         "id":4,
-        "img":"./img/bike12.png"
+        "img":"/img/bike12.png"
       
       }
 ]
