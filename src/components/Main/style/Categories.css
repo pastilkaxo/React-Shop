@@ -5,7 +5,7 @@
 .categories .container {
     width: 100%;
     padding: 0;
-    margin: 0;
+    margin-top: 50px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -85,13 +85,13 @@
     }
 
     .container div {
-        flex-basis: calc(50% - 10px); /* Половина ширины контейнера с меньшими отступами */
+        flex-basis: calc(50% - 20px); /* Половина ширины контейнера с меньшими отступами */
         margin: 5px; /* Меньшие отступы между карточками */
         background-size: cover;
         height: 100%;
         padding: 10px;
     }
     .container div p {
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
 }

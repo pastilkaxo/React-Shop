@@ -1,10 +1,15 @@
 import  {Link} from "react-router-dom";
 import {useParams} from "react-router-dom";   // ID из URL
-import React from "react";
+import React,{useState} from "react";
 import  './style/BikePage.css';
 import {useSnackbar} from "notistack";
+import Textarea from '@mui/joy/Textarea';
+
 
 export  default  function BikePage({bikes , added , addToCart}){
+
+
+    const [comment , setComment] = useState([]);
    const {id} = useParams()
     const bikeID = Number(id);
     const cardToShow = bikes.find((item) => item.id === bikeID);
@@ -18,8 +23,14 @@ export  default  function BikePage({bikes , added , addToCart}){
             //   className: 'custom-snackbar'
             // },
             autoHideDuration:1500,
+            color:"success"
         });
     };
+
+
+
+    
+
 
 
    return(
@@ -34,10 +45,24 @@ export  default  function BikePage({bikes , added , addToCart}){
                   <div className="add_but" onClick={() => addToCart(cardToShow)}>
                       <button className="cart_bt" onClick={handleClickVariant('success')}><p>Add to cart</p></button>
                   </div>
-
            </div>
        </div>
+       <div className="comments-container">
+       <h2>Reviews</h2>
+        <div className="type-container">
+        <Textarea
+        className="new-text"
+  minRows={2}
+/>
+          <button>Send</button>
+        </div>
+        <div className="total-comments">
+
+        </div>
+       </div>
+       <div className="link-container">
        <Link to="/" className="link_back"><button className="go-back"><img className='info-img' src='/img/go-back.png' alt=''/><p className='back-sum'>Back</p></button></Link>
+       </div>
    </>
    )
 }

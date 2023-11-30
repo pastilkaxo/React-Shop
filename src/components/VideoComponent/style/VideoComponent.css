@@ -1,0 +1,13 @@
+.video-container {
+    width: 100%;
+}
+
+.video-content video{
+    width: 100%;
+}
+
+@media  screen and (max-width:600px) {
+    .video-container{
+       display: none;
+    }
+}

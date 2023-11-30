@@ -12,7 +12,6 @@ export default function Login({boughtItems}){
     const [isLoggedIn, setIsLoggedIn] = useState(false);
 
 
-
     const usernameRef = useRef("");
     const emailRef = useRef("");
     const passRef = useRef("");
@@ -30,7 +29,6 @@ export default function Login({boughtItems}){
         if (!username|| !email || !password || password !== recPass) {
             return alert("Please fill in all fields.");
         }
-
       saveUserName(username);
       saveEmail(email);
       savePassword(password)
@@ -40,10 +38,7 @@ export default function Login({boughtItems}){
         usersInfo.push({username,email,password})
         console.log(usersInfo)
 
-    };
-
-
-
+    }
     const handleLogout = () => {
             saveUserName('');
             saveEmail('');
@@ -54,6 +49,7 @@ export default function Login({boughtItems}){
 
 
     useEffect(() => {
+
         if (isRegistered && userName && email && password === recoverPassRef.current.value && password !== "") {
             setIsRegistered(true)
             setIsLoggedIn(true)
@@ -132,10 +128,10 @@ return(
     <div className="login-container">
     <div className='stroke-back'><Link to="/" className="go-back-link"><img className='empty-btn-img' src='./img/go-back.png' alt=''/><p className='back-sum'>Back</p></Link> </div>
     <div className="login-form">
-        <h2>Registration</h2>
+        <h2>Login</h2>
         <form>
             <div className="form-group">
-                <label htmlFor="username">User name:</label>
+                <label htmlFor="username">Username:</label>
                 <input ref={usernameRef}  type="text" id="username" name="username" placeholder="Enter your username" required/>
             </div>
             <div className="form-group">

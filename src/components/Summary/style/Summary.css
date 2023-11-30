@@ -1,0 +1,17 @@
+.sum-container {
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    font-size: 2.2rem;
+    font-weight: 100;
+}
+
+@media screen and (max-width:600px) {
+    .sum-container{
+        margin-top: 50px;
+
+    }
+
+}

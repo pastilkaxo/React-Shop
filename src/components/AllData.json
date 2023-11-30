@@ -5,6 +5,7 @@
     "cost":200 ,
      "id":1,
      "img":"/img/bike1.png"
+
     },
     {
     "name":"BMX Bike 2",
@@ -14,26 +15,26 @@
     },
     {
     "name":"BMX Bike 3" ,
-     "cost":99 ,
+     "cost":90 ,
       "id":3,
       "img":"/img/bike3.png"
     },
     {
     "name":"BMX Bike 4" ,
-     "cost":99 ,
+     "cost":90 ,
       "id":4,
       "img":"/img/bike4.png"
     },
     {
       "name":"BMX rudder Cult Crew",
-      "cost":200 ,
+      "cost":220 ,
       "id":5,
       "img":"/img/bike5.png"
 
   },
   {
     "name":"BMX rudder BSD Grime 4pc",
-    "cost":200,
+    "cost":120,
     "id":6,
     "img":"/img/bike6.png"
 },
@@ -46,35 +47,35 @@
 },
 {
 "name":"BMX rudder KINK Rex",
-"cost":200,
+"cost":100,
 "id":8,
 "img":"/img/bike8.png"
 
 },
 {
   "name":"BMX Frame Cult 2 Short IC",
-  "cost":200 ,
+  "cost":80 ,
   "id":9,
   "img":"/img/bike9.png"
 
 },
 {
   "name":"BMX Frame KINK Williams",
-  "cost":200 ,
+  "cost":30 ,
   "id":10,
   "img":"/img/bike10.png"
 
 },
 {
   "name":"BMX Frame Subrosa Rose 20.9 ",
-  "cost":200 ,
+  "cost":40 ,
   "id":11,
   "img":"/img/bike11.png"
 
 },
 {
   "name":"BMX Frame Fiend Raekes 20,8",
-  "cost":200 ,
+  "cost":60 ,
   "id":12,
   "img":"/img/bike12.png"
 

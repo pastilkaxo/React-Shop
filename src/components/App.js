@@ -10,6 +10,9 @@ import {BrowserRouter as Router,  Route, Routes} from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setCart, setFavorite } from "./Redux/Store";
 import BikePage from "./BikePage/BikePage";
+import VideoComponent from "./VideoComponent/VideoComponent";
+import Summary from "./Summary/Summary";
+
 
 function App (){
   const [display,setDisplay] = useState('none');
@@ -27,10 +30,12 @@ function App (){
   const favorite = useSelector((state) => state.favorite)
 
 
- //  FILTER CATEGORIES ARRAYS : 
+ //  FILTER CATEGORIES ARRAYS :
+
+
  
  const handleCategoryChange = (category) => {
-  let jsonData;
+  let jsonData 
   switch(category) {
     case "Bikes":
       jsonData = require("./Bikes.json");
@@ -42,16 +47,19 @@ function App (){
       jsonData = require("./Frames.json");
       break;
     default:
-      jsonData = require("./AllData.json");
+        jsonData = require("./AllData.json");
       break;
   }
-   setBikes(jsonData);  
+  
+   setBikes(jsonData);
 } 
+
 
  // -----------------------
  
 
-const toggleFavContainer = () => {
+
+ const toggleFavContainer = () => {
   setDisplayFavContainer(!displayFavContainer);
 };
 
@@ -69,6 +77,10 @@ const toggleFavContainer = () => {
   const clearCart = () => {
     dispatch(setCart([]))
   }
+  const clearFav = () => {
+    dispatch(setFavorite([]))
+  }
+
   const addToBuys = () => {
       cart.forEach((bike) => {
           setBoughtItems((prevItems) => [...prevItems,bike])
@@ -183,6 +195,8 @@ return(
         <Route path="/bikePage/:id" element={ <SnackbarProvider maxSnack={3}> <BikePage {...bikeProps}/> </SnackbarProvider>} />
       <Route path="/" element={<>
         <Header {...headerProps} />
+        <VideoComponent/>
+        <Summary/>
         <SnackbarProvider maxSnack={3}>
           <Main {...mainProps} />
         </SnackbarProvider>

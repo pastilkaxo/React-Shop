@@ -78,8 +78,15 @@ button:hover {
     justify-content: center;
     text-decoration: none;
     margin-bottom: 20px;
+    width: 160px;
 }
 
+.link-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
 
 .add_but {
     display: flex;
@@ -89,6 +96,42 @@ button:hover {
 .cart_bt p {
   text-transform: uppercase;
 }
+
+.new-text {
+    width: 400px;
+}
+
+.comments-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+.comments-container h2 {
+    font-weight: 100;
+}
+.type-container button {
+    color: black;
+}
+.type-container button:active {
+    color: white;
+    background-color: black;
+}
+
+
+.type-container{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    gap:50px;
+}
+
+
+
+
+
+
 
 
 @media screen and (max-width:600px) {
@@ -102,4 +145,13 @@ button:hover {
     .go-back {
         width: 90%;
     }
+   .type-container {
+    flex-direction: column;
+    gap: 15px;
+   }
+   .new-text {
+    width: 250px;
+    height: 300px;
+   }
+
 }

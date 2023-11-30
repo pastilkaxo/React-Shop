@@ -25,6 +25,8 @@ const Main = ({ bikes,addToCart, addFavBtn , added,
   };
 
 
+
+
   useEffect(() => {
            const updFill = bikes.map((bike) => 
             favorite.some((favBike) => favBike.id === bike.id) ? "pink" : "black" 
@@ -48,7 +50,8 @@ const Main = ({ bikes,addToCart, addFavBtn , added,
     bikeFillColors:bikeFillColors,
     handleClickVariant:handleClickVariant,
    }
-    
+
+
   return (
     <main>
       <Loader {...loaderProps}/>

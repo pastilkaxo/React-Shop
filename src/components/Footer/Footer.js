@@ -16,7 +16,6 @@ export default function Footer(){
                        </div>
                        <div className="main-links">
                               <ul>
-                                 <li><a href="#"><img src="./img/icons8-github-50.png" alt="" /></a></li>
                                  <li><a href="#"><img src="./img/icons8-телеграмма-app-50.png" alt=""/></a></li>
                                  <li><a href="#"><img src="./img/icons8-instagram-50.png" alt=""/></a></li>
                               </ul>

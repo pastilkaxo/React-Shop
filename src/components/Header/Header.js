@@ -12,6 +12,9 @@ const Header = ({displayChange,bikes,added, displayMain , toggleFavContainer}) =
     setSvgClicked(!svgClicked);
     displayMain();
     toggleFavContainer();
+    added.forEach(element => {
+       console.log(element)
+    });
   };
 
 

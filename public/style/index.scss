@@ -6,6 +6,7 @@
     font-family: 'Libre Baskerville', serif;
     font-family: 'Lilita One', cursive;
 }
+$currentColor: white;
 body,
 html {
   margin: 0;
@@ -15,6 +16,7 @@ html {
   background: linear-gradient(-45deg, #7cdde0, #d5e04b, #23a6d5, #16d7de);
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;
+  --video-cursor: url(/src/components/VideoComponent/img/video-cursor.svg),auto;
 }
 
 body {
@@ -27,7 +29,7 @@ padding-top: 85px;
   //background-repeat: no-repeat;
   //background-attachment: fixed;
 #root {
-width: 1080px;
+width: 1280px;
 height: 100%;
 border-radius: 20px;
 background: #FFF;
@@ -48,12 +50,19 @@ margin-bottom: 50px;
     background-position: 0% 50%;
   }
 }
-
-
+//#notistack-snackbar svg {
+//  fill: #f7f7f7;
+//}
+//
+//#notistack-snackbar {
+//  color: white;
+//  font-weight: 200;
+//  font-size: 1.1rem;
+//}
 
 @media screen and (max-width:600px) {
   #root {
-    width: 100%;
+    width: 1080px;
     border-radius: 50px;
   }
 
