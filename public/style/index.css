@@ -11,26 +11,25 @@ body,
 html {
   margin: 0;
   padding: 0;
+  padding-top: 28px;
+  padding-bottom: 15px;
   overflow-x: hidden;
   scroll-behavior: smooth;
   background: linear-gradient(-45deg, #7cdde0, #d5e04b, #23a6d5, #16d7de);
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;
-  --video-cursor: url(/src/components/VideoComponent/img/video-cursor.svg),auto;
 }
 
 body {
   display: flex;
   justify-content: center;
-  padding-top: 85px;
 }
 body #root {
+  border-radius: 20px;
   width: 1280px;
   height: 100%;
-  border-radius: 20px;
   background: #FFF;
   box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.04);
-  margin-bottom: 50px;
 }
 
 @keyframes gradient {
@@ -47,6 +46,5 @@ body #root {
 @media screen and (max-width: 600px) {
   #root {
     width: 1080px;
-    border-radius: 50px;
   }
 }/*# sourceMappingURL=index.css.map */

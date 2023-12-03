@@ -13,6 +13,7 @@ export default function Footer(){
                        <div className="main-info">
                                <p>+375 (25) 232-21-42</p>
                                <p>+375 (29) 123-41-23</p>
+                               <p>New York, Queens</p>
                        </div>
                        <div className="main-links">
                               <ul>

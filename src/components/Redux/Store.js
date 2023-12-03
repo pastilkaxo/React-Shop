@@ -7,9 +7,13 @@ const initialState = {
   // categories: [],
 };
 
+
+
+
 // принимает объект, содержащий редуктор, название части состояния 
 // (state slice), начальное значение состояния, и автоматически генерирует
 // частичный редуктор с соответствующими создателями и типами операции
+
 
 const appSlice = createSlice({
   name: "app",
@@ -25,6 +29,7 @@ const appSlice = createSlice({
   },
 });
 
+
 // actions
 export const {
   setCart,setFavorite
@@ -35,4 +40,6 @@ const store = configureStore({
   reducer: appSlice.reducer,
 });
 
+
 export default store;
+

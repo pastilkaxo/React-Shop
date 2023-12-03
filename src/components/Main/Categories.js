@@ -13,7 +13,7 @@ export default function Categories({handleCategoryChange}){
     return(
           <section className="categories">
                    <div className="container">
-                            <div className="cat-1" onClick={() => handleCategoryClick("All")}><p>All</p></div>
+                            <div className="cat-1" onClick={() => {handleCategoryClick("All"); console.log(selectedCategory)} }><p>All</p></div>
                             <div className="cat-2" onClick={() => handleCategoryClick("Bikes")}><p>Bikes</p></div>
                             <div className="cat-3" onClick={() => handleCategoryClick("Rudders")}><p>Rudders</p></div>
                             <div className="cat-4" onClick={() => handleCategoryClick("Frames")}><p>Frames</p></div>

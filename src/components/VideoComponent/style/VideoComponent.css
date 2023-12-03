@@ -4,10 +4,12 @@
 
 .video-content video{
     width: 100%;
+    cursor: url(/public/img/cur.png),pointer;
 }
 
 @media  screen and (max-width:600px) {
-    .video-container{
-       display: none;
-    }
+  .video-content video {
+    padding: 10px;
+    margin-top: -10px;
+  }
 }

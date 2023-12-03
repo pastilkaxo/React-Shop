@@ -93,6 +93,9 @@ button:hover {
     justify-content: center;
 }
 
+.cart_bt {
+    width: 100px;
+}
 .cart_bt p {
   text-transform: uppercase;
 }
@@ -127,9 +130,15 @@ button:hover {
     gap:50px;
 }
 
+.btns-container {
+    display: flex;
+}
 
-
-
+.bp-fav {
+    cursor: pointer;
+    width: 42px;
+    margin-left: 15px;
+}
 
 
 

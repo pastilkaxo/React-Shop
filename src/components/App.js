@@ -10,16 +10,14 @@ import {BrowserRouter as Router,  Route, Routes} from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setCart, setFavorite } from "./Redux/Store";
 import BikePage from "./BikePage/BikePage";
-import VideoComponent from "./VideoComponent/VideoComponent";
-import Summary from "./Summary/Summary";
 
 
 function App (){
   const [display,setDisplay] = useState('none');
   // const [cart,setCart] = useState([]);
-  const [added,setAdded] = useState([]); // !
   // const [favorite,setFavorite] = useState([])
   const [bikes,setBikes] = useState(BikesData); 
+  const [added , setAdded] = useState(false);
   const [showMainContent, setShowMainContent] = useState(true); 
   const [displayFavContainer, setDisplayFavContainer] = useState(true);
   const [boughtItems, setBoughtItems] = useState([]);
@@ -29,7 +27,6 @@ function App (){
   const cart = useSelector((state) => state.cart);
   const favorite = useSelector((state) => state.favorite)
 
-
  //  FILTER CATEGORIES ARRAYS :
 
 
@@ -38,20 +35,26 @@ function App (){
   let jsonData 
   switch(category) {
     case "Bikes":
-      jsonData = require("./Bikes.json");
+      jsonData  = require("./AllData.json");
+      jsonData = jsonData.filter(bike => bike.name.toLowerCase().includes('bike')).sort((a , b) => a.id - b.id);
+      setBikes(jsonData)
       break;
     case "Rudders":
-      jsonData = require("./Rudders.json");
+      jsonData  = require("./AllData.json");
+      jsonData = jsonData.filter(bike => bike.name.toLowerCase().includes('rudder')).sort((a , b) => a.id - b.id);
+      setBikes(jsonData)
       break;
     case "Frames":
-      jsonData = require("./Frames.json");
+      jsonData  = require("./AllData.json");
+      jsonData = jsonData.filter(bike => bike.name.toLowerCase().includes('frame')).sort((a , b) => a.id - b.id);
+      setBikes(jsonData)
       break;
     default:
         jsonData = require("./AllData.json");
+        
       break;
   }
-  
-   setBikes(jsonData);
+  setBikes(jsonData)
 } 
 
 
@@ -70,9 +73,7 @@ function App (){
   // const addToCart = (bike) => {
   //         setCart((prev) => ([...prev,bike]))
   //       }
-  const addToCart = (bike) => {
-    dispatch(setCart([...cart, bike]));
-  }
+
 
   const clearCart = () => {
     dispatch(setCart([]))
@@ -102,6 +103,21 @@ function App (){
        }
   }
 
+  const addToCart = (bike) => {
+    const isAlreadyInCart = cart.some((cartBike) => cartBike.id === bike.id)
+    if(!cart.filter(bike => bike.name.toLowerCase().includes(bike.name))){
+      setAdded(false)
+    }
+    else { setAdded(true) }
+    if(isAlreadyInCart){
+      delFromCart(bike.id);
+    }
+    else {
+    dispatch(setCart([...cart, bike]));
+    }
+  }
+
+
   // const delFromCart = (id) => {
   //        setCart((prevCart) => {
   //               const idx = prevCart.findIndex((bike) => bike.id === id);
@@ -118,6 +134,7 @@ function App (){
     if (idx !== -1) {
       const newArray = [...cart.slice(0, idx), ...cart.slice(idx + 1)];
       dispatch(setCart(newArray)); 
+      setAdded(false);
     }
   }
 // --------------------------
@@ -156,6 +173,7 @@ const cartProps = {
   delFromCart:delFromCart,
   clearCart:clearCart,
     addToBuys :addToBuys,
+    
 }
 
 const mainProps = {
@@ -164,12 +182,14 @@ const mainProps = {
   showMainContent: showMainContent,
   displayFavContainer: displayFavContainer,
   bikes: bikes,
-  added: added,
   addToCart: addToCart,
   addFavBtn: addFavBtn,
   favorite: favorite,
   delFavItem: delFavItem,
   handleCategoryChange: handleCategoryChange,
+  cart:cart,
+  added:added,
+  clearFav:clearFav,
 };
 
 const loginProps = {
@@ -179,8 +199,10 @@ const loginProps = {
 
 const bikeProps = {
     bikes:bikes,
-    added:added,
     addToCart:addToCart,
+    added:added,
+    addFavBtn: addFavBtn,
+    favorite: favorite,
 }
 
 
@@ -195,8 +217,6 @@ return(
         <Route path="/bikePage/:id" element={ <SnackbarProvider maxSnack={3}> <BikePage {...bikeProps}/> </SnackbarProvider>} />
       <Route path="/" element={<>
         <Header {...headerProps} />
-        <VideoComponent/>
-        <Summary/>
         <SnackbarProvider maxSnack={3}>
           <Main {...mainProps} />
         </SnackbarProvider>

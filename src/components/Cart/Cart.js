@@ -30,7 +30,7 @@ return(
                        </ul>
                                 <div className='cart-btns'>
                                 <button className='greenBtn' onClick={addToBuys}>Make offer <img src='./img/arrow.png' alt=''/></button>
-                      <button className='clear-btn' onClick={clearCart}><img src='./img/trash.png'/></button>
+                      <button className='clear-btn' onClick={clearCart}><img src='./img/trash.png' alt='clean'/></button>
                                 </div>
                             </div>
                   

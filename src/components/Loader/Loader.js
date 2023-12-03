@@ -5,7 +5,7 @@ import './style/Loader.css'
 
 export default function Loader({favorite,displayFavContainer, delFavItem, 
    added ,addToCart, toggleFavContainer,displayMain ,
-    bikeFillColors,  handleClickVariant,}) {
+    bikeFillColors,  handleClickVariant,cartBtn,clearFav}) {
       
 const [isLoading ,setIsLoading] = useState(true);
 
@@ -36,6 +36,8 @@ const [isLoading ,setIsLoading] = useState(true);
    displayMain:displayMain,
    bikeFillColors:bikeFillColors,
    handleClickVariant:handleClickVariant,
+   cartBtn:cartBtn,
+   clearFav:clearFav,
  } 
 
 

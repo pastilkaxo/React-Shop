@@ -5,25 +5,29 @@ import Categories from './Categories'
 import Loader from "../Loader/Loader";
 import { useSnackbar } from 'notistack';
 import  {Link} from "react-router-dom";
+import VideoComponent from "../VideoComponent/VideoComponent";
+import Summary from "../Summary/Summary";
 
 const Main = ({ bikes,addToCart, addFavBtn , added,
   favorite,displayFavContainer, showMainContent , delFavItem ,
-   toggleFavContainer , displayMain , handleCategoryChange , selectedCategory}) => {
+   toggleFavContainer , displayMain 
+   , handleCategoryChange , selectedCategory,cart,clearFav}) => {
+
 
    const [searchResult, setSearchResult] = useState('');
    const [bikeFillColors, setBikeFillColors] = useState(bikes.map(() => "black"));
+   const [cartBtn , setCartBtn] = useState(bikes.map(() =>'add.svg'));
    const { enqueueSnackbar } = useSnackbar();
 
-   const handleClickVariant = (variant) => () => {
-    enqueueSnackbar('Bike added!',{
-      variant ,
-      // ContentProps: {
-      //   className: 'custom-snackbar'
-      // },
-      autoHideDuration:1500,
-    });
-  };
 
+
+useEffect(() => {
+  const updBtn = bikes.map((bike) => (
+    cart.find((cartBike) => cartBike.id === bike.id)) ? 'remove.svg'
+    : 'add.svg'
+    );
+    setCartBtn(updBtn);
+},[bikes,cart])
 
 
 
@@ -32,10 +36,18 @@ const Main = ({ bikes,addToCart, addFavBtn , added,
             favorite.some((favBike) => favBike.id === bike.id) ? "pink" : "black" 
            );
            setBikeFillColors(updFill);
-
-           
   },[bikes,favorite])
 
+  const handleClickVariant = (variant) => () => {
+    const varCheck = `Item ${added ? 'removed' : 'added'}!`
+    enqueueSnackbar(  varCheck,{
+      variant ,
+      // ContentProps: {
+      //   className: 'custom-snackbar'
+      // },
+      autoHideDuration:1500,
+    });
+  };
 
    // --------------------------------
 
@@ -49,6 +61,8 @@ const Main = ({ bikes,addToCart, addFavBtn , added,
     displayMain:displayMain,
     bikeFillColors:bikeFillColors,
     handleClickVariant:handleClickVariant,
+    cartBtn:cartBtn,
+    clearFav:clearFav,
    }
 
 
@@ -58,6 +72,8 @@ const Main = ({ bikes,addToCart, addFavBtn , added,
 
          {showMainContent &&
           <>
+                  <Summary/>
+                        <VideoComponent/>
           <Categories handleCategoryChange = {handleCategoryChange} selectedCategory={selectedCategory}/>
           <div className="search-panel">
         <h1>Find out:</h1>
@@ -92,7 +108,7 @@ const Main = ({ bikes,addToCart, addFavBtn , added,
                   <p><small>COST:</small>{bike.cost}$</p>
                 </span>
                 <span className="add-button" onClick={() => addToCart(bike)}>
-                  <img src={bike.added ? added : './img/add.svg'} alt="add" onClick={handleClickVariant('success')}/>
+                  <img src= {`./img/${cartBtn[bike.id - 1]}`} alt="add" onClick={handleClickVariant(added ? 'error' : 'success')}/>
                 </span>
               </div>
             </div>

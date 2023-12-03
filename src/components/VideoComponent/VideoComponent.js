@@ -3,8 +3,6 @@ import video from "./video/vid.mp4"
 import "./style/VideoComponent.css"
 
 export default function VideoComponent() {
-
-    
     return(
         <>
         <div className="video-container">

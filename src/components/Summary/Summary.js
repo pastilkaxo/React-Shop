@@ -1,28 +1,30 @@
-import "./style/Summary.css"
+import "./style/Summary.css";
 import React, { useState } from "react";
-export default function Summary(){
-     
-    const useObserver = (option,cb) => {
-        const observer = React.useRef(null);
-        return React.useCallback((node) => {
-            observer.current = new window.IntersectionObserver(cb , option);
-            observer.current.observe(node);
-        },[])
-    }
-  const [hidden , setHidden] = useState(false);
+import { useInView } from "react-intersection-observer";
 
-  const cbRef = useObserver({threshold:1},(entries) => {
-    entries.forEach((entry) => {
-        setHidden(!entry.isIntersect)
-    });
-  } )
+export default function Summary() {
+  const [hasBeenInView, setHasBeenInView] = useState(false);
 
+  const { ref, inView } = useInView({
+    threshold: 0,
+  });
 
-    return(
-        <>
-         <div className="sum-container" ref={cbRef}>
-            <h1>BMX Shop - Buy your dream bike!</h1>
-         </div>
-        </>
-    )
+  if (inView && !hasBeenInView) {
+    setHasBeenInView(true);
+  }
+
+  return (
+    <>
+      <div className="sum-container" ref={ref}>
+        <h1
+          className="sum-text"
+          style={{
+            display: hasBeenInView ? 'block' : 'none',
+          }}
+        >
+          BMX Shop - Buy your dream bike!
+        </h1>
+      </div>
+    </>
+  );
 }
