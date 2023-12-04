@@ -21,7 +21,7 @@ export default function Login({boughtItems}){
     const userAvaatr = useSelector((state) => state.user.userAvatar); 
     const isAuthorized = useSelector((state) => state.user.isAuthorized);
     const [logType, setLogType] = useState(true);
-    const [typeName ,setTypeName] = useState('Login');
+    const [typeName ,setTypeName] = useState('Register');
 
 
     const usernameRef = useRef("");
@@ -32,7 +32,12 @@ export default function Login({boughtItems}){
     const handleSubmit = () => {
       dispatch(authorize(true))
             dispatch(setName(usernameRef.current.value))
-            dispatch(setEmail(emailRef.current.value))
+            if(logType){
+                dispatch(setEmail('vlad.lemeshok@gmail.com'))
+            }
+            else {
+                dispatch(setEmail(emailRef.current.value))
+            }
             dispatch(setPassword(passRef.current.value))
     }
 
@@ -105,21 +110,18 @@ return(
     logType ?  
     <div className="login-container">
     <div className='stroke-back'><Link to="/" className="go-back-link"><img className='empty-btn-img' src='./img/go-back.png' alt=''/><p className='back-sum'>Back</p></Link> </div>
-    <div className='register-choose'>
-          <button onClick={changeLogType}>{typeName}</button>
-        </div>
+
     <div className="login-form">
             <div className='log-choose'>
             <h2>Login</h2>
+            <div className='register-choose'>
+          <button onClick={changeLogType}>{typeName}</button>
+        </div>
             </div>
         <form>
             <div className="form-group">
                 <label htmlFor="username">Username:</label>
                 <input ref={usernameRef}  type="text" id="username" name="username" placeholder="Enter your username" required/>
-            </div>
-            <div className="form-group">
-                <label htmlFor="email">Email:</label>
-                <input ref={emailRef}  type="email" id="email" name="email" placeholder="Enter email" required/>
             </div>
             <div className="form-group">
                 <label htmlFor="password">Password:</label>
@@ -139,6 +141,9 @@ return(
 <div className="login-form">
         <div className='log-choose'>
         <h2>REGISTER</h2>
+        <div className='register-choose'>
+      <button onClick={changeLogType}>{typeName}</button>
+    </div>
         </div>
     <form>
         <div className="form-group">

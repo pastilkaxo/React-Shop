@@ -63,6 +63,16 @@ justify-content: center;
 
     .user_profile_img {
     width: 290px;
+    height: 250px;
+    }
+}
+@media screen and (max-width:1024px) {
+  .user_profile_img {
+    width: 290px;
+    height: 250px;
+    }
+    .user_profile {
+      padding-bottom: 150px;
     }
 }
  
