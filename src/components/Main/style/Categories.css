@@ -27,8 +27,8 @@
     justify-content: center;
     cursor: pointer;
     position: relative;
-    transition: background-image .0,3s ease-in-out;
-    transition: background-color .0.15s ease-in-out;
+    transition: background-image 0.3s ease-in-out;
+    transition: background-color 0.15s ease-in-out;
 }
 .cat-1 {
     background-image: url(https://cdn.pixabay.com/photo/2013/03/27/12/29/bmx-97090_640.jpg);
