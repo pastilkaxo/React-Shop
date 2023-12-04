@@ -1,6 +1,16 @@
 import './style/Cart.css';
+import { useSelector } from 'react-redux';
+import Alert from '@mui/material/Alert';
+import Stack from '@mui/material/Stack';
+
 
  function Cart({bikes,displayNone ,delFromCart,clearCart,addToBuys}){
+   const isAuthorized = useSelector((state) => state.user.isAuthorized);
+
+const alerterBuy = () => {
+      alert("You need to logged in!")
+}
+
 return(
     
            <div className='drawer'>
@@ -26,10 +36,12 @@ return(
                             <div className='cartTotalBlock' style={bikes.length === 0 ? {display:'none'} : {display:'block'}}>
                             <ul className='cart-foot'>
                         <li><span>For all </span><div></div><b>{bikes.reduce((total,element) => total + element.cost , 0)} $</b></li>
-                        <li><span>Tax 5%</span><div></div><b>{(bikes.reduce((total, element) => total + element.cost, 0) * 0.05)} $</b></li>
+                        <li><span>Tax 5%</span><div></div><b>{Math.floor((bikes.reduce((total, element) => total + element.cost, 0) * 0.05))} $</b></li>
                        </ul>
                                 <div className='cart-btns'>
-                                <button className='greenBtn' onClick={addToBuys}>Make offer <img src='./img/arrow.png' alt=''/></button>
+                                <button className='greenBtn' onClick={isAuthorized ? addToBuys :   
+                                    alerterBuy}>
+                                       Make offer <img src='./img/arrow.png' alt=''/></button>
                       <button className='clear-btn' onClick={clearCart}><img src='./img/trash.png' alt='clean'/></button>
                                 </div>
                             </div>

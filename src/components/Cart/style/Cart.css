@@ -55,6 +55,7 @@
 .cartItem div p {
   display: flex;
   flex-direction: column;
+  width: 150px;
 }
 .cartItem .remover {
     opacity: 0.5;

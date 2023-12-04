@@ -3,75 +3,45 @@ import styles from "./style/User.module.css";
 import { Link } from "react-router-dom";
 import React, {useRef, useState , useEffect} from 'react';
 import { useLocalStorage } from '@uidotdev/usehooks';
+import { 
+    authorize,
+    unauthorize,
+    setName,
+    setAvatar,
+    setEmail,
+    setPassword
+} from '../Redux/Store';
+import { useDispatch, useSelector } from "react-redux";
 
 export default function Login({boughtItems}){
-    const [userName, saveUserName] = useLocalStorage("userName");
-    const [email, saveEmail] = useLocalStorage('email');
-    const [password, savePassword] = useLocalStorage('password');
-    const [isRegistered, setIsRegistered] = useLocalStorage('isRegistered', false);
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const dispatch = useDispatch();
+    const userName = useSelector((state) => state.user.userName);
+    const userEmail = useSelector((state) => state.user.userEmail);
+    const userPassword = useSelector((state) => state.user.userPassword); 
+    const userAvaatr = useSelector((state) => state.user.userAvatar); 
+    const isAuthorized = useSelector((state) => state.user.isAuthorized);
+    const [logType, setLogType] = useState(true);
+    const [typeName ,setTypeName] = useState('Login');
 
 
     const usernameRef = useRef("");
     const emailRef = useRef("");
     const passRef = useRef("");
     const recoverPassRef = useRef("")
-    const usersInfo = [];
-
-    const handleSubmit = (e) => {
-      e.preventDefault();
-        const username = usernameRef.current.value;
-        const email = emailRef.current.value;
-        const password = passRef.current.value;
-        const recPass = recoverPassRef.current.value;
-      console.log(username , email , password)
-
-        if (!username|| !email || !password || password !== recPass) {
-            return alert("Please fill in all fields.");
-        }
-      saveUserName(username);
-      saveEmail(email);
-      savePassword(password)
-      setIsLoggedIn(true);
-        setIsRegistered(true);
-
-        usersInfo.push({username,email,password})
-        console.log(usersInfo)
-
+    
+    const handleSubmit = () => {
+      dispatch(authorize(true))
+            dispatch(setName(usernameRef.current.value))
+            dispatch(setEmail(emailRef.current.value))
+            dispatch(setPassword(passRef.current.value))
     }
+
+
     const handleLogout = () => {
-            saveUserName('');
-            saveEmail('');
-            savePassword('');
-            setIsRegistered(false);
-            setIsLoggedIn(false);
+        dispatch(unauthorize())
     };
 
-
-    useEffect(() => {
-
-        if (isRegistered && userName && email && password === recoverPassRef.current.value && password !== "") {
-            setIsRegistered(true)
-            setIsLoggedIn(true)
-        }
-        else {
-            setIsRegistered(false)
-            setIsLoggedIn(false)
-        }
-    }, []);
-
-
-    let tab = [];
-        tab.push(
-            <div>
-                { userName === "Vlad" ? <img className={styles.user_profile_img}   src="./img/avatar1.png" alt="Vlad"/> : <img  className={styles.user_profile_img} src="./img/avatar2.jpg" alt=" "/>}
-            </div>
-        )
-
-
-
-
-   if(isLoggedIn) {
+   if(isAuthorized) {
        return (
            <>
                <div className="header">
@@ -84,11 +54,12 @@ export default function Login({boughtItems}){
 
                </div>
                <div className={styles.user_profile}>
-                   {tab}
+               <img  className={styles.user_profile_img} src="./img/avatar2.jpg" alt=" "/>
                    <div className={styles.user_profile_data}>
                        <h2>Username:<br/> {userName}</h2>
-                       <p>Email: <br/> {email}</p>
+                       <p>Email: <br/> {userEmail}</p>
                        <div className={styles.user_profile_data_buttons}>
+                           <Link to="/"><button >Back to main</button></Link>
                            <button onClick={handleLogout}>Logout</button>
                        </div>
 
@@ -120,15 +91,27 @@ export default function Login({boughtItems}){
    }
 
 
+   const changeLogType = () => {
+    setLogType(!logType);
+    setTypeName(logType ? 'Login' : 'Register');
+  };
 
 
 
 
 return(
+<>
+{
+    logType ?  
     <div className="login-container">
     <div className='stroke-back'><Link to="/" className="go-back-link"><img className='empty-btn-img' src='./img/go-back.png' alt=''/><p className='back-sum'>Back</p></Link> </div>
+    <div className='register-choose'>
+          <button onClick={changeLogType}>{typeName}</button>
+        </div>
     <div className="login-form">
-        <h2>Login</h2>
+            <div className='log-choose'>
+            <h2>Login</h2>
+            </div>
         <form>
             <div className="form-group">
                 <label htmlFor="username">Username:</label>
@@ -142,14 +125,44 @@ return(
                 <label htmlFor="password">Password:</label>
                 <input ref={passRef} type="password" id="password" name="password" placeholder="Password" required/>
             </div>
-            <div className="form-group">
-                <label htmlFor="confirm-password">Confirm password:</label>
-                <input ref={recoverPassRef} type="password" id="confirm-password" name="confirm-password" placeholder="Confirm password" required/>
-            </div>
+
             <button type="submit" onClick={handleSubmit}>Confirm</button>
         </form>
     </div>
 </div>
+:
+<div className="login-container">
+<div className='stroke-back'><Link to="/" className="go-back-link"><img className='empty-btn-img' src='./img/go-back.png' alt=''/><p className='back-sum'>Back</p></Link> </div>
+<div className='register-choose'>
+      <button onClick={changeLogType}>{typeName}</button>
+    </div>
+<div className="login-form">
+        <div className='log-choose'>
+        <h2>REGISTER</h2>
+        </div>
+    <form>
+        <div className="form-group">
+            <label htmlFor="username">Username:</label>
+            <input ref={usernameRef}  type="text" id="username" name="username" placeholder="Enter your username" required/>
+        </div>
+        <div className="form-group">
+            <label htmlFor="email">Email:</label>
+            <input ref={emailRef}  type="email" id="email" name="email" placeholder="Enter email" required/>
+        </div>
+        <div className="form-group">
+            <label htmlFor="password">Password:</label>
+            <input ref={passRef} type="password" id="password" name="password" placeholder="Password" required/>
+        </div>
+        <div className="form-group">
+            <label htmlFor="confirm-password">Confirm password:</label>
+            <input ref={recoverPassRef} type="password" id="confirm-password" name="confirm-password" placeholder="Confirm password" required/>
+        </div>
+        <button type="submit" onClick={handleSubmit}>Confirm</button>
+    </form>
+</div>
+</div>
 
+}
+</>
 )
 }

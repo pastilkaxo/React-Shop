@@ -24,30 +24,24 @@ function App (){
 
 
   const dispatch = useDispatch();
-  const cart = useSelector((state) => state.cart);
-  const favorite = useSelector((state) => state.favorite)
+  const cart = useSelector((state) => state.reducer.cart);
+  const favorite = useSelector((state) => state.reducer.favorite)
 
  //  FILTER CATEGORIES ARRAYS :
 
 
  
  const handleCategoryChange = (category) => {
-  let jsonData 
+  let  jsonData  = require("./AllData.json"); 
   switch(category) {
     case "Bikes":
-      jsonData  = require("./AllData.json");
       jsonData = jsonData.filter(bike => bike.name.toLowerCase().includes('bike')).sort((a , b) => a.id - b.id);
-      setBikes(jsonData)
       break;
     case "Rudders":
-      jsonData  = require("./AllData.json");
       jsonData = jsonData.filter(bike => bike.name.toLowerCase().includes('rudder')).sort((a , b) => a.id - b.id);
-      setBikes(jsonData)
       break;
     case "Frames":
-      jsonData  = require("./AllData.json");
       jsonData = jsonData.filter(bike => bike.name.toLowerCase().includes('frame')).sort((a , b) => a.id - b.id);
-      setBikes(jsonData)
       break;
     default:
         jsonData = require("./AllData.json");
