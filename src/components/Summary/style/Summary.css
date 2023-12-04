@@ -11,6 +11,7 @@
 .sum-container h1 {
 font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 text-align: center;
+font-weight: 700;
 display: none;
 animation: faidIn 1.5s ease-in-out;
 }
