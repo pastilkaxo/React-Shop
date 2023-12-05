@@ -84,6 +84,8 @@ align-items: center;
     .header {
         flex-direction: column; 
         text-align: center; 
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
     }
     .links {
         display: flex;

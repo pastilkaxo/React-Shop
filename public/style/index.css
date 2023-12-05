@@ -44,7 +44,13 @@ body #root {
   }
 }
 @media screen and (max-width: 600px) {
-  #root {
+  body #root {
     width: 1080px;
+    border-radius: 0;
+  }
+  body,
+  html {
+    padding-top: 0;
+    padding-bottom: 0;
   }
 }/*# sourceMappingURL=index.css.map */

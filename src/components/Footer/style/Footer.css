@@ -60,6 +60,8 @@ line-height: normal;
     .foot-container {
         height: auto; 
         padding: 20px; 
+        border-bottom-right-radius: 0;
+border-bottom-left-radius: 0;
     }
 
     .main-links ul {
