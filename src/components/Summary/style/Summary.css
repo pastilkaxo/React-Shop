@@ -28,5 +28,8 @@ animation: faidIn 1.5s ease-in-out;
         margin-top: 50px;
          
     }
+    .sum-text {
+        font-weight: 700;
+    }
 
 }
