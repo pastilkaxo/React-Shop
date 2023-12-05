@@ -1,46 +1,98 @@
-import  {Link} from "react-router-dom";
-import {useParams} from "react-router-dom";   // ID из URL
-import React,{useState,useEffect} from "react";
+import React, { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { useSnackbar } from "notistack";
+import { useDispatch, useSelector } from "react-redux";
+import { setCommentsList } from "../Redux/Store";
 import  './style/BikePage.css';
-import {useSnackbar} from "notistack";
-import Textarea from '@mui/joy/Textarea';
 
-export  default  function BikePage({bikes , added , addToCart,addFavBtn,favorite}){
+export default function BikePage({ bikes, added, addToCart, addFavBtn, favorite }) {
+  const [bikeFillColors, setBikeFillColors] = useState(bikes.map(() => "black"));
+  const [commentInput, setCommentInput] = useState("");
+  const [userCommented, setUserCommented] = useState(false);
+  useEffect(() => {
+    const updFill = bikes.map((bike) =>
+      favorite.some((favBike) => favBike.id === bike.id) ? "pink" : "black"
+    );
+    setBikeFillColors(updFill);
+  }, [bikes, favorite]);
 
-    const [bikeFillColors, setBikeFillColors] = useState(bikes.map(() => "black"));
+  const dispatch = useDispatch();
+  const commentsList = useSelector((state) => state.comment.commentsList);
+  const userName = useSelector((state) => state.user.userName);
+  const { id } = useParams();
+  const bikeID = Number(id);
+  const cardToShow = bikes.find((item) => item.id === bikeID);
+  const userNameCurrent = useSelector((state) => state.user.userName);
+  const { enqueueSnackbar } = useSnackbar();
+
+  const handleClickVariant = (variant) => () => {
+    const varCheck = `Item ${added ? 'removed' : 'added'}!`;
+    enqueueSnackbar(varCheck, {
+      variant,
+      autoHideDuration: 1500,
+    });
+  };
+
+  const addComment = (e) => {
+    e.preventDefault()
+    if (!commentInput.trim()) {
+      enqueueSnackbar("Please enter a non-empty comment", {
+        variant: "error",
+        autoHideDuration: 1500,
+      });
+      return;
+    }
+    if (userCommented) {
+      enqueueSnackbar("You can only post one comment", {
+        variant: "error",
+        autoHideDuration: 1500,
+      });
+      setCommentInput(''); 
+      return;
+    }
 
 
-    useEffect(() => {
-        const updFill = bikes.map((bike) => 
-         favorite.some((favBike) => favBike.id === bike.id) ? "pink" : "black" 
-        );
-        setBikeFillColors(updFill);
+    var now = new Date();
+ let hours = now.getHours();
+ let minutes = now.getMinutes();
+ let seconds = now.getSeconds();
+const bikeName = cardToShow.name;
+ const newComment = {
+  id:commentInput.length,
+  bikeName,
+  userName,
+  time: `${hours}:${minutes}:${seconds}`,
+  text: commentInput,
+};
+// const time =`${hours}:${minutes}:${seconds}`
+// const newComment = [userName,time,commentInput]
 
-        
-},[bikes,favorite])
-
-
-   const {id} = useParams()
-    const bikeID = Number(id);
-    const cardToShow = bikes.find((item) => item.id === bikeID);
-
-    const { enqueueSnackbar } = useSnackbar();
-
-    const handleClickVariant = (variant) => () => {
-
-        const varCheck = `Item ${added ? 'removed' : 'added'}!`
-        enqueueSnackbar(  varCheck,{
-          variant ,
-          // ContentProps: {
-          //   className: 'custom-snackbar'
-          // },
-          autoHideDuration:1500,
-        });
-      };
+dispatch(setCommentsList([...commentsList,newComment]));
+    setCommentInput(''); 
+    setUserCommented(true);
+  };
 
 
-      
+const deleteComment = (commentId , commentName) => {
+ const idx = commentsList.findIndex((comment) => comment.id === commentId);
 
+
+ if(idx !== -1 &&  userNameCurrent === commentName) {
+  const newComs = [...commentsList.slice(0,idx),...commentsList.slice(idx+1)];
+  dispatch(setCommentsList(newComs))
+  setUserCommented(false)
+ }
+ else {
+  enqueueSnackbar("It's not yours comment!", {
+    variant: "error",
+    autoHideDuration: 1500,
+  });
+  return;
+ }
+}
+
+console.log(commentsList)
 
    return(
    <>
@@ -66,17 +118,25 @@ export  default  function BikePage({bikes , added , addToCart,addFavBtn,favorite
        <div className="comments-container">
        <h2>Reviews</h2>
         <div className="type-container">
-        <Textarea
-        className="new-text"
-  minRows={2}
-/>
-          <button >Send</button>
+          <input value={commentInput} className="new-text" type='text' minLength={20} name="comment" placeholder="Enter your view"  onChange={(e) =>  setCommentInput(e.target.value)} />
+          <button onClick={addComment} >Send</button>
         </div>
         <div className="total-comments">
+        { commentsList.map((comment) => (
+            <div key={comment.id} className="comment">
+              <div className="comment-head">
+                <h3>{comment.userName}:<br/><small>{comment.bikeName}</small></h3>
+                <p className="time">{comment.time}</p>
+              </div>
+              <h4>{comment.text}</h4>
+              <div className="com-btn">
+              <button onClick={() => deleteComment(comment.id,comment.userName)}><img src='/img/trash.png' alt='clean'/></button>
+              </div>
+            </div>))}
         </div>
        </div>
        <div className="link-container">
-       <Link to="/" className="link_back"><button className="go-back"><img className='info-img' src='/img/go-back.png' alt=''/><p className='back-sum'>Back</p></button></Link>
+       <Link to="/" className="link_back"><button className="go-back"><img className='info-img' src='/img/go-back.png' alt=''/><a className='back-sum' href="#">Back</a></button></Link>
        </div>
    </>
    )

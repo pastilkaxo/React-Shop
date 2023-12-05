@@ -2,7 +2,7 @@ import './style/Login.css';
 import styles from "./style/User.module.css";
 import { Link } from "react-router-dom";
 import React, {useRef, useState , useEffect} from 'react';
-import { useLocalStorage } from '@uidotdev/usehooks';
+import { useSnackbar } from "notistack";
 import { 
     authorize,
     unauthorize,
@@ -13,7 +13,7 @@ import {
 } from '../Redux/Store';
 import { useDispatch, useSelector } from "react-redux";
 
-export default function Login({boughtItems}){
+export default function Login({boughtItems,clearFav,clearCart}){
     const dispatch = useDispatch();
     const userName = useSelector((state) => state.user.userName);
     const userEmail = useSelector((state) => state.user.userEmail);
@@ -23,13 +23,16 @@ export default function Login({boughtItems}){
     const [logType, setLogType] = useState(true);
     const [typeName ,setTypeName] = useState('Register');
 
+    const { enqueueSnackbar } = useSnackbar();
 
+    
     const usernameRef = useRef("");
     const emailRef = useRef("");
     const passRef = useRef("");
-    const recoverPassRef = useRef("")
+    const recoverPassRef = useRef("");
     
     const handleSubmit = () => {
+        if(usernameRef.current.value && passRef.current.value && recoverPassRef.current.value !== null){
       dispatch(authorize(true))
             dispatch(setName(usernameRef.current.value))
             if(logType){
@@ -39,11 +42,22 @@ export default function Login({boughtItems}){
                 dispatch(setEmail(emailRef.current.value))
             }
             dispatch(setPassword(passRef.current.value))
+        }
+        else {
+            enqueueSnackbar("Please enter email correct!", {
+                variant: "error",
+                autoHideDuration: 1500,
+              });
+              return; 
+        }
+            
     }
 
 
     const handleLogout = () => {
         dispatch(unauthorize())
+        clearCart()
+        clearFav()
     };
 
    if(isAuthorized) {

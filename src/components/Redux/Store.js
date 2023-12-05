@@ -21,18 +21,32 @@ const initialState = {
   userPassword:'',
   userAvatar:'default',
   isAuthorized: false,
+  // comments:[],
+  commentsList:[],
 };
 
+const commentsListSlice = createSlice({
+  name:'comment',
+  initialState,
+  reducers:{
+    setCommentsList:(state,action) => {
+      state.commentsList = action.payload
+    },
+  }
+})
+
+
+// user slice
 const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
       authorize: (state, action) => {
           state.isAuthorized = true;
-          state = {
-            ...action.payload,
-            avatar: 'default',
-        };
+          state.userName = action.payload.userName;
+          state.userEmail = action.payload.userEmail;
+          state.userPassword = action.payload.userPassword;
+          state.avatar = 'default';
       },
       unauthorize: (state) => {
           state.isAuthorized = false;
@@ -56,6 +70,18 @@ const userSlice = createSlice({
   }
 });
 
+
+// const commentSlice = createSlice({
+//   name:'comment',
+//   initialState,
+//   reducers:{
+//     setComment:(state ,action) => {
+//       if(!state.isAuthorized) return;
+//       state.comments = action.payload;
+//     }
+//   }
+// })
+
 // c and f slice
 const appSlice = createSlice({
   name: "app",
@@ -75,6 +101,8 @@ const appSlice = createSlice({
 const rootReducer = combineReducers({
   reducer: appSlice.reducer,
   user: userSlice.reducer,
+  // comment:commentSlice.reducer,
+  comment:commentsListSlice.reducer,
 });
 
 
@@ -102,6 +130,16 @@ export const {
   setEmail,
   setPassword
 } = userSlice.actions
+
+//action of coms
+// export const {
+// setComment
+// } = commentSlice.actions
+
+export const {
+  setCommentsList,
+} = commentsListSlice.actions
+
 
 // store  
 const store = configureStore({

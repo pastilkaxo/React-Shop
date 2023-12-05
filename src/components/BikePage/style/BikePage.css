@@ -100,16 +100,13 @@ button:hover {
   text-transform: uppercase;
 }
 
-.new-text {
-    width: 400px;
-}
+
 
 .comments-container {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-
 }
 .comments-container h2 {
     font-weight: 100;
@@ -128,12 +125,16 @@ button:hover {
     justify-content: center;
     flex-direction: row;
     gap:50px;
+    width: 40%;
 }
 
 .btns-container {
     display: flex;
+   justify-content: center;
 }
-
+.comment {
+    overflow: auto;
+}
 .bp-fav {
     cursor: pointer;
     width: 42px;
@@ -141,7 +142,39 @@ button:hover {
 }
 
 
+.total-comments {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    width: 60%;
+    margin-top: 50px;
+}
 
+.comment{
+    border: 2px solid gray;
+    border-radius: 10px;
+    margin-top: 20px;
+    padding: 15px;
+}
+.comment .comment-head {
+ display: flex;
+ align-items: center;
+}
+.comment-head h3 {
+    flex: 1;
+    color: red;
+    font-weight: 100;
+} 
+.comment h4 {
+    font-weight: 100;
+}
+.comment .com-btn {
+   display: flex;
+   justify-content: flex-end;
+}
+.com-btn button {
+    background-color: white;
+}
 
 @media screen and (max-width:600px) {
     .bike_container {
@@ -157,10 +190,10 @@ button:hover {
    .type-container {
     flex-direction: column;
     gap: 15px;
+    width: 80%;
    }
    .new-text {
-    width: 250px;
-    height: 300px;
+    height: 100px;
    }
 
 }

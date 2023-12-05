@@ -21,7 +21,7 @@ const Header = ({displayChange,bikes,added, displayMain , toggleFavContainer}) =
 return(
 <>
 <div className="header">
-                   <div className="logo">
+                   <div className="logo" id="logo">
                      <img src="./img/logo.png" alt=""/>
                       <span className="summury">
                       <p>BM SHOP<small>BMX BIKE STORE</small></p>

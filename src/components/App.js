@@ -189,6 +189,8 @@ const mainProps = {
 const loginProps = {
   bikes: bikes,
     boughtItems: boughtItems,
+    clearFav:clearFav,
+    clearCart:clearCart,
 }
 
 const bikeProps = {
@@ -197,6 +199,7 @@ const bikeProps = {
     added:added,
     addFavBtn: addFavBtn,
     favorite: favorite,
+  
 }
 
 
