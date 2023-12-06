@@ -6,6 +6,16 @@
     align-items: center;
     padding: 50px;
  }
+ h3 {
+    font-weight: 100;
+    color: black;
+ }
+
+ .bike-info-container {
+    background-color:rgba(112, 109, 112, 0.258);
+    padding: 15px;
+    border-radius: 20px;
+ }
 
 .info_sum{
 text-align: center;
@@ -16,6 +26,9 @@ text-transform: uppercase;
 .inner_info_sum{
     font-weight: 100;
     text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    color: black;
 }
 
 
@@ -79,7 +92,17 @@ button:hover {
     text-decoration: none;
     margin-bottom: 20px;
     width: 160px;
+    align-items: center;
 }
+.bike-desq {
+    font-weight: 100;
+    width: 450px;
+}
+.b-cost span {
+    color: red;
+}
+
+
 
 .link-container{
     display: flex;
@@ -94,7 +117,11 @@ button:hover {
 }
 
 .cart_bt {
-    width: 100px;
+    width: 150px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .cart_bt p {
   text-transform: uppercase;
@@ -150,31 +177,55 @@ button:hover {
     margin-top: 50px;
 }
 
-.comment{
-    border: 2px solid gray;
-    border-radius: 10px;
-    margin-top: 20px;
+.comment {
+    border: 1px solid #ccc;
     padding: 15px;
-}
-.comment .comment-head {
- display: flex;
- align-items: center;
-}
-.comment-head h3 {
-    flex: 1;
-    color: red;
+    margin-bottom: 15px;
+    border-radius: 8px;
+  }
+  
+  .comment-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .comment-head h3 {
+    margin: 0;
+  }
+  
+  .comment-head small {
+    font-size: 0.8em;
+    color: #666;
+  }
+  
+  .comment-head .time {
+    color: #999;
+    margin: 0;
+  }
+  
+
+  .com-btn button {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .com-btn button img {
+    width: 20px;
+    height: 20px;
+  }
+  
+
+  .comment h4 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
     font-weight: 100;
-} 
-.comment h4 {
-    font-weight: 100;
-}
-.comment .com-btn {
-   display: flex;
-   justify-content: flex-end;
-}
-.com-btn button {
-    background-color: white;
-}
+    margin: 0;
+    margin-top: 20px;
+  }
 
 @media screen and (max-width:600px) {
     .bike_container {
@@ -195,5 +246,9 @@ button:hover {
    .new-text {
     height: 100px;
    }
+   .bike-desq {
+    font-weight: 100;
+    width: auto;
+}
 
 }

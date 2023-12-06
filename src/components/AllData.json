@@ -3,79 +3,90 @@
 "name":"BMX Bike 1" , 
 "cost":200 ,
  "id":1,
- "img":"/img/bike1.png"
+ "img":"/img/bike1.png",
+ "desq":"BMX Bike 1 is an exceptional choice for riders seeking a combination of style and durability. With its robust build and sleek design, this bike ensures a smooth and thrilling off-road cycling experience. The high-quality components contribute to its overall performance, making it suitable for riders who appreciate both aesthetics and functionality."
 },
 {
 "name":"BMX Bike 2",
  "cost":150 ,
   "id":2,
-  "img":"/img/bike2.png"
+  "img":"/img/bike2.png",
+  "desq":"Offering affordability without compromising reliability, BMX Bike 2 is a budget-friendly option for riders. Its sturdy construction and eye-catching design make it an excellent choice for those on a budget. Whether you're a beginner or an experienced rider, this bike provides a dependable and enjoyable BMX experience."
 },
 {
 "name":"BMX Bike 3" ,
  "cost":99 ,
   "id":3,
-  "img":"/img/bike3.png"
+  "img":"/img/bike3.png",
+  "desq":"BMX Bike 3 combines affordability with agility, making it an ideal choice for riders who prioritize maneuverability and speed. Despite its low cost, this lightweight bike doesn't skimp on performance. It's a fantastic option for entry-level riders looking for a budget-friendly yet high-performing BMX bike."
 },
 {
 "name":"BMX Bike 4" ,
  "cost":99 ,
   "id":4,
-  "img":"/img/bike4.png"
+  "img":"/img/bike4.png",
+  "desq":" Similar to BMX Bike 3, this model offers an affordable option for riders. With its lightweight design and focus on performance, BMX Bike 4 is suitable for those who want a budget-friendly BMX experience without compromising on quality."
 },
 {
   "name":"BMX rudder Cult Crew",
   "cost":200 ,
   "id":5,
-  "img":"/img/bike5.png"
+  "img":"/img/bike5.png",
+  "desq":"The BMX Rudder Cult Crew is a high-quality handlebar designed for BMX enthusiasts. Priced at $200, it combines style and functionality, providing riders with precise control and a distinctive look. It's an excellent choice for those who value both performance and aesthetics in their BMX components."
 
 },
 {
 "name":"BMX rudder BSD Grime 4pc",
 "cost":200,
 "id":6,
-"img":"/img/bike6.png"
+"img":"/img/bike6.png",
+"desq":"The BMX Rudder BSD Grime 4pc is a top-notch handlebar known for its durability and performance. Priced at $200, it offers riders a reliable and stylish component for their BMX setup. With its four-piece design, it provides a unique look and superior control."
 },
 {
 "name":"BMX rudder BSD Freedom",
 "cost":200 ,
 "id":7,
-"img":"/img/bike7.png"
+"img":"/img/bike7.png",
+"desq":"Designed for BMX enthusiasts seeking freedom in their riding experience, the BMX Rudder BSD Freedom is a high-quality handlebar priced at $200. Its construction emphasizes both strength and flexibility, providing riders with the control they need for various tricks and maneuvers."
 
 },
 {
 "name":"BMX rudder KINK Rex",
 "cost":200,
 "id":8,
-"img":"/img/bike8.png"
+"img":"/img/bike8.png",
+"desq":"The BMX Rudder KINK Rex is a premium handlebar priced at $200, offering riders a combination of strength and precision. With its design focused on control and stability, it's an ideal choice for riders who demand high-performance components for their BMX setup."
 
 },
 {
 "name":"BMX Frame Cult 2 Short IC",
 "cost":200 ,
 "id":9,
-"img":"/img/bike9.png"
+"img":"/img/bike9.png",
+"desq":"The BMX Frame Cult 2 Short IC is a high-quality frame designed for BMX riders seeking durability and style. Priced at $200, this frame provides a solid foundation for riders to perform tricks and stunts. Its short IC design adds to its maneuverability, making it a popular choice among BMX enthusiasts."
 
 },
 {
 "name":"BMX Frame KINK Williams",
 "cost":200 ,
 "id":10,
-"img":"/img/bike10.png"
+"img":"/img/bike10.png",
+"desq":"The BMX Frame KINK Williams is a top-tier frame priced at $200, known for its strength and versatility. Designed to handle the rigors of BMX riding, it offers riders a reliable foundation for performing various tricks. Its stylish design adds an aesthetic flair to any BMX setup."
 
 },
 {
 "name":"BMX Frame Subrosa Rose 20.9 ",
 "cost":200 ,
 "id":11,
-"img":"/img/bike11.png"
+"img":"/img/bike11.png",
+"desq":"The BMX Frame Subrosa Rose 20.9 is a precision-crafted frame designed for riders who prioritize performance and reliability. Priced at $200, it provides a stable platform for BMX enthusiasts to showcase their skills. The 20.9-inch size offers a balanced combination of agility and control."
 
 },
 {
 "name":"BMX Frame Fiend Raekes 20,8",
 "cost":200 ,
 "id":12,
-"img":"/img/bike12.png"
-
+"img":"/img/bike12.png",
+"desq":"The BMX Frame Fiend Raekes 20.8 is a high-performance frame priced at $200. Designed with precision and durability in mind, it offers riders a solid foundation for pushing the limits of BMX riding. The 20.8-inch size strikes a balance between maneuverability and stability, making it a preferred choice for serious riders."
 }
 ]

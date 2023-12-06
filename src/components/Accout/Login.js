@@ -13,7 +13,7 @@ import {
 } from '../Redux/Store';
 import { useDispatch, useSelector } from "react-redux";
 
-export default function Login({boughtItems,clearFav,clearCart}){
+export default function Login({boughtItems,clearFav,clearCart,setBoughtItems}){
     const dispatch = useDispatch();
     const userName = useSelector((state) => state.user.userName);
     const userEmail = useSelector((state) => state.user.userEmail);
@@ -58,7 +58,14 @@ export default function Login({boughtItems,clearFav,clearCart}){
         dispatch(unauthorize())
         clearCart()
         clearFav()
+        setBoughtItems([]);
     };
+
+
+   const handleChangeUserData = () => {
+    
+   }
+
 
    if(isAuthorized) {
        return (

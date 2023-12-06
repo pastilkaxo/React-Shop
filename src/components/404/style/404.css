@@ -1,0 +1,41 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+}
+.error-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 100px;
+}
+.error-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.error-content .err-img {
+    width: 400px;
+}
+.err-link{
+    text-decoration: none;
+}
+.error-content .error-btns button{
+width: 200px;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.err-head {
+    display: flex;
+    justify-content: center;
+}
+
+@media screen and (max-width:600px) {
+    .wrapper{
+        height: 100%;
+    }
+    .error-container{
+        padding-bottom:44.7%;
+    }
+}

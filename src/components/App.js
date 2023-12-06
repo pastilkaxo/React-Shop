@@ -10,7 +10,7 @@ import {BrowserRouter as Router,  Route, Routes} from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setCart, setFavorite } from "./Redux/Store";
 import BikePage from "./BikePage/BikePage";
-
+import ErrorTab from "./404/404";
 
 function App (){
   const [display,setDisplay] = useState('none');
@@ -36,19 +36,23 @@ function App (){
   switch(category) {
     case "Bikes":
       jsonData = jsonData.filter(bike => bike.name.toLowerCase().includes('bike')).sort((a , b) => a.id - b.id);
+      setBikes(jsonData)
       break;
     case "Rudders":
-      jsonData = jsonData.filter(bike => bike.name.toLowerCase().includes('rudder')).sort((a , b) => a.id - b.id);
+      jsonData = jsonData.filter(bike => bike.name.toLowerCase().includes('rudder')).sort((a,b) => a.id - b.id);
+      setBikes(jsonData)
+      console.log(jsonData)
       break;
     case "Frames":
       jsonData = jsonData.filter(bike => bike.name.toLowerCase().includes('frame')).sort((a , b) => a.id - b.id);
+      setBikes(jsonData)
       break;
     default:
-        jsonData = require("./AllData.json");
-        
+      jsonData  = require("./AllData.json");
+      setBikes(jsonData);
       break;
   }
-  setBikes(jsonData)
+
 } 
 
 
@@ -88,7 +92,6 @@ function App (){
        const isAlreadyFav = favorite.some((favBike) => favBike.id === bike.id);
        if(isAlreadyFav){
         delFavItem(bike.id);
-
        }
        else {
     // setFavorite((prev) => ([...prev,bike]) )
@@ -191,6 +194,7 @@ const loginProps = {
     boughtItems: boughtItems,
     clearFav:clearFav,
     clearCart:clearCart,
+    setBoughtItems:setBoughtItems,
 }
 
 const bikeProps = {
@@ -218,8 +222,8 @@ return(
           <Main {...mainProps} />
         </SnackbarProvider>
         <Footer />
-
       </>} />
+       <Route path="/*" element={<ErrorTab/>}/>
     </Routes>
   </div>
 </Router>

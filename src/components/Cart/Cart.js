@@ -1,14 +1,17 @@
 import './style/Cart.css';
 import { useSelector } from 'react-redux';
-import Alert from '@mui/material/Alert';
-import Stack from '@mui/material/Stack';
+import { useSnackbar } from 'notistack';
 
 
  function Cart({bikes,displayNone ,delFromCart,clearCart,addToBuys}){
    const isAuthorized = useSelector((state) => state.user.isAuthorized);
+   const { enqueueSnackbar } = useSnackbar();
 
 const alerterBuy = () => {
-      alert("You need to logged in!")
+    if(!isAuthorized){
+console.log("Error!")
+       return;
+    }
 }
 
 return(
@@ -39,8 +42,7 @@ return(
                         <li><span>Tax 5%</span><div></div><b>{Math.floor((bikes.reduce((total, element) => total + element.cost, 0) * 0.05))} $</b></li>
                        </ul>
                                 <div className='cart-btns'>
-                                <button className='greenBtn' onClick={isAuthorized ? addToBuys :   
-                                    alerterBuy}>
+                                <button className='greenBtn' onClick={alerterBuy}>
                                        Make offer <img src='./img/arrow.png' alt=''/></button>
                       <button className='clear-btn' onClick={clearCart}><img src='./img/trash.png' alt='clean'/></button>
                                 </div>
