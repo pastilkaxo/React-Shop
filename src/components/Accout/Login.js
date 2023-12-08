@@ -96,7 +96,7 @@ export default function Login({boughtItems,clearFav,clearCart,setBoughtItems}){
                        boughtItems.map((bike) => (
 
                                <div className='cartItem' key={bike.id}>
-                                   <img  src={bike.img} alt='' />
+                                   <img  src={bike.img[0]} alt='' />
 
                                    <div>
                                        <Link to={`/bikePage/${bike.id}`} className="bike_link_info">

@@ -4,7 +4,7 @@
     flex-wrap: wrap;
     overflow: auto;
    padding-bottom: 5rem;
- height:100vh;
+ height:auto;
 }
 
 .card{
@@ -151,6 +151,13 @@ transform: translateX(5px);
 }
 .fav-empty button:active {
 background-color: black;
+}
+
+.fav-clean-btn:hover{
+   background-color: #000;
+}
+.fav-clean-btn:hover img {
+   filter: invert(1);
 }
 
 

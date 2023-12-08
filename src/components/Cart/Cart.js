@@ -12,6 +12,7 @@ const alerterBuy = () => {
 console.log("Error!")
        return;
     }
+
 }
 
 return(
@@ -26,7 +27,7 @@ return(
                        <div className='items' >
                        {bikes.map((bike) => (
                             <div className='cartItem' key={bike.id}>
-                            <img  src={bike.img} alt='' />
+                            <img  src={bike.img[0]} alt='' />
                              <div>
                                 <p>{bike.name}<small>{bike.cost}$</small></p>
                                 
@@ -42,7 +43,7 @@ return(
                         <li><span>Tax 5%</span><div></div><b>{Math.floor((bikes.reduce((total, element) => total + element.cost, 0) * 0.05))} $</b></li>
                        </ul>
                                 <div className='cart-btns'>
-                                <button className='greenBtn' onClick={alerterBuy}>
+                                <button className='greenBtn' onClick={addToBuys}>
                                        Make offer <img src='./img/arrow.png' alt=''/></button>
                       <button className='clear-btn' onClick={clearCart}><img src='./img/trash.png' alt='clean'/></button>
                                 </div>
