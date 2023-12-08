@@ -119,6 +119,7 @@ z-index:1;
     justify-content: center;
 align-items: center;
 flex-direction: column;
+height: 100vh;
 }
 .fav-empty p {
 color: #9D9D9D;
