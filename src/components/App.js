@@ -26,7 +26,7 @@ function App (){
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.reducer.cart);
   const favorite = useSelector((state) => state.reducer.favorite)
-
+  const isAuthorized = useSelector((state) => state.user.isAuthorized);
  //  FILTER CATEGORIES ARRAYS :
 
 
@@ -81,10 +81,15 @@ function App (){
   }
 
   const addToBuys = () => {
-      cart.forEach((bike) => {
-          setBoughtItems((prevItems) => [...prevItems,bike])
-      });
-      dispatch(setCart([]))
+   if(isAuthorized){
+    cart.forEach((bike) => {
+      setBoughtItems((prevItems) => [...prevItems,bike])
+  });
+  dispatch(setCart([]))
+   }
+   else{
+    console.log("ERR")
+   }
   }
 
 

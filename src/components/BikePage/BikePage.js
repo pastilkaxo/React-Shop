@@ -86,9 +86,9 @@ dispatch(setCommentsList([...commentsList,newComment]));
 
 const deleteComment = (commentId , commentName) => {
  const idx = commentsList.findIndex((comment) => comment.id === commentId);
+console.log(userNameCurrent)
 
-
- if(idx !== -1 &&  userNameCurrent === commentName) {
+ if(idx !== -1 &&  userNameCurrent === commentName && isAuthorized) {
   const newComs = [...commentsList.slice(0,idx),...commentsList.slice(idx+1)];
   dispatch(setCommentsList(newComs))
   setUserCommented(false)
