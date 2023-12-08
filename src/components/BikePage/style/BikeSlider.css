@@ -1,4 +1,19 @@
-.thumb {
+.car-div-img img{
+  vertical-align: top;
+  height: 400px;
+}
+.thumb img{
     background-size: cover;
-    height: 50px;
+    background-repeat: no-repeat;
+    height: 60px;
+}
+
+
+@media screen and (max-width:600px) {
+    .car-div-img img{
+        height: auto;
+      }
+      .thumbs {
+        margin-left: 0;
+      }
 }

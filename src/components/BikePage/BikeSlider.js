@@ -5,13 +5,12 @@ import { Carousel } from 'react-responsive-carousel';
 
 export default function BikeSlider({cardToShow}){
     return(
-          <Carousel showArrows={true} >
-            <div>
-            <img className="info_img" src={cardToShow.img} width="500" height="350" alt="" />
-            </div>
-            <div>
-            <img className="info_img" src={cardToShow.img} width="500" height="350" alt="" />
-            </div>
-          </Carousel>
+        <Carousel showArrows={true} className="carousel-divs">
+        {cardToShow.img.map((imageSrc, index) => (
+          <div key={index} className="car-div-img">
+            <img className="info_img" src={imageSrc} alt="" />
+          </div>
+        ))}
+      </Carousel>
     )
 }

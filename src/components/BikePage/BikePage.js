@@ -131,7 +131,7 @@ console.log(commentsList)
        <div className="comments-container">
        <h2>Reviews</h2>
         <div className="type-container">
-          <input value={commentInput} className="new-text" type='text'  name="comment" placeholder="Enter your view"  onChange={(e) =>  setCommentInput(e.target.value)} />
+          <input value={commentInput} maxLength={50} className="new-text" type='text'  name="comment" placeholder="Enter your view"  onChange={(e) =>  setCommentInput(e.target.value)} />
           <button onClick={addComment} >Send</button>
         </div>
         <div className="total-comments">

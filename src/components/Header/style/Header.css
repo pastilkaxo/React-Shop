@@ -47,7 +47,7 @@ align-items: center;
     color: white;
     background-color: black;
     text-align: center;
-    width: 20px;
+    width: 24px;
     border: 1px solid black;
     border-radius: 20px;
 }
@@ -65,7 +65,7 @@ align-items: center;
     color: red;
     background-color: pink;
     text-align: center;
-    width: 20px;
+    width: 24px;
     border-radius: 20px;
     border: 1px solid pink;
 }

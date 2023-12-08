@@ -1,9 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Lilita+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Patua+One&family=Paytone+One&family=Roboto&family=Sarabun:wght@700&display=swap');
 *{
     transition: 0.15s;
     box-sizing: border-box;
     color: #000;
-    font-family: 'Lilita One', cursive;
+    // font-family: 'Lilita One', cursive;
+    font-family: 'Paytone One', sans-serif;
 }
 $currentColor: white;
 body,
@@ -69,5 +71,6 @@ html {
   padding-top: 0;
   padding-bottom: 0;
 }
-
 }
+
+

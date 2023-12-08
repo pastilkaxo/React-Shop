@@ -72,7 +72,7 @@ button:hover {
     height: 18px;
 }
 .go-back:hover img{
-    transform: translateX(-35px);
+    transform: translateX(-25px);
 
 }
 .go-back:hover{
@@ -215,7 +215,9 @@ button:hover {
     width: 20px;
     height: 20px;
   }
-  
+  .bike-desq {
+    font-family: 'Patua One', serif;
+  }
 
   .comment h4 {
     overflow: hidden;
@@ -224,6 +226,8 @@ button:hover {
     font-weight: 100;
     margin: 0;
     margin-top: 20px;
+    word-break: break-all;
+    font-family: 'Patua One', serif;
   }
 
 @media screen and (max-width:600px) {

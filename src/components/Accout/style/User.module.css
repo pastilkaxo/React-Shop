@@ -57,7 +57,7 @@ justify-content: center;
         flex-direction: column;
     }
     .purss_items {
-        width: 400px;
+        width: 100%;
         margin-left: 0;
     }
 
