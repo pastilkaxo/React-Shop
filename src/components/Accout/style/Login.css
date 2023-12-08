@@ -21,7 +21,7 @@
     padding: 20px;
     width: 450px;
     text-align: center;
-    margin-top: 50px;
+    margin-top: 80px;
 }
 
 .log-choose{
@@ -126,6 +126,7 @@ button:hover {
   @media screen and (max-width:600px) {
     .login-form {
         width: 300px;
+     
     }
     .go-back-link{
         left: 5%;
@@ -139,4 +140,8 @@ button:hover {
   }
 
 
-  
+  @media  (max-width:300px) {
+    .login-form {
+      margin-top: 180px;
+    }
+  }
