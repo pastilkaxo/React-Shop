@@ -1,4 +1,3 @@
-// reducers/categories.js
 import { createSlice } from "@reduxjs/toolkit";
 
 export const categoriesReducer = createSlice({

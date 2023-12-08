@@ -3,11 +3,11 @@ import styles from "./style/User.module.css";
 import { Link } from "react-router-dom";
 import React, {useRef, useState , useEffect} from 'react';
 import { useSnackbar } from "notistack";
+import UploadAvatar from './UpploadAvatar';
 import { 
     authorize,
     unauthorize,
     setName,
-    setAvatar,
     setEmail,
     setPassword
 } from '../Redux/Store';
@@ -22,7 +22,6 @@ export default function Login({boughtItems,clearFav,clearCart,setBoughtItems}){
     const isAuthorized = useSelector((state) => state.user.isAuthorized);
     const [logType, setLogType] = useState(true);
     const [typeName ,setTypeName] = useState('Register');
-
     const { enqueueSnackbar } = useSnackbar();
 
     
@@ -62,9 +61,7 @@ export default function Login({boughtItems,clearFav,clearCart,setBoughtItems}){
     };
 
 
-   const handleChangeUserData = () => {
-    
-   }
+
 
 
    if(isAuthorized) {
@@ -80,7 +77,8 @@ export default function Login({boughtItems,clearFav,clearCart,setBoughtItems}){
 
                </div>
                <div className={styles.user_profile}>
-               <img  className={styles.user_profile_img} src="./img/avatar2.jpg" alt=" "/>
+                <UploadAvatar/>
+               {/* <img  className={styles.user_profile_img} src="./img/avatar2.jpg" alt=" "/> */}
                    <div className={styles.user_profile_data}>
                        <h2>Username:<br/> {userName}</h2>
                        <p>Email: <br/> {userEmail}</p>

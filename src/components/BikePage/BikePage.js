@@ -1,9 +1,10 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { useSnackbar } from "notistack";
 import { useDispatch, useSelector } from "react-redux";
 import { setCommentsList } from "../Redux/Store";
+import BikeSlider from "./BikeSlider";
 import  './style/BikePage.css';
 
 export default function BikePage({ bikes, added, addToCart, addFavBtn, favorite }) {
@@ -108,7 +109,8 @@ console.log(commentsList)
        <h1 className="info_sum">Item info:</h1>
 
        <div className="bike_container">
-           <img className="info_img" src={cardToShow.img} width="500" height="350" alt="" />
+          <BikeSlider cardToShow={cardToShow}/>
+           {/* <img className="info_img" src={cardToShow.img} width="500" height="350" alt="" /> */}
            <div className="bike-info-container">
                <h2 className="inner_info_sum">  {cardToShow.name} <svg onClick={() => { addFavBtn(cardToShow);}} className="bp-fav" focusable="false" 
                                       aria-hidden="true" viewBox="0 0 24 24"

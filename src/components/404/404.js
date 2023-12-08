@@ -1,8 +1,12 @@
 import React from "react"
-import { Link } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import "./style/404.css"
 import Logo from "../Logo/Logo"
+
 export default function ErrorTab() {
+
+   const {link} = useParams();
+   
     return(
 <div className="wrapper">
 <div className="err-head">

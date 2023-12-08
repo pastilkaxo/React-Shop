@@ -19,7 +19,8 @@ const initialState = {
   userName:'',
   userEmail:'',
   userPassword:'',
-  userAvatar:'default',
+  userAvatar:'.img/avatar2.jpg',
+  preview:null,
   isAuthorized: false,
   // comments:[],
   commentsList:[],
@@ -58,6 +59,10 @@ const userSlice = createSlice({
       setAvatar: (state, action) => {
           if (!state.isAuthorized) return;
           state.avatar = action.payload;
+      },
+      setPreview:(state,action) => {
+        if(!state.isAuthorized) return;
+            state.preview = action.payload;
       },
       setEmail: (state, action) => {
           if (!state.isAuthorized) return;
@@ -127,6 +132,7 @@ export const {
   unauthorize,
   setName,
   setAvatar,
+  setPreview,
   setEmail,
   setPassword
 } = userSlice.actions
