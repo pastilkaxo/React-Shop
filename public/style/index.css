@@ -20,6 +20,14 @@ html {
   animation: gradient 15s ease infinite;
 }
 
+.ht-over {
+  overflow: hidden;
+}
+
+.ht-no-over {
+  overflow: auto;
+}
+
 body {
   display: flex;
   justify-content: center;

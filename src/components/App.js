@@ -22,7 +22,6 @@ function App (){
   const [displayFavContainer, setDisplayFavContainer] = useState(true);
   const [boughtItems, setBoughtItems] = useState([]);
 
-
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.reducer.cart);
   const favorite = useSelector((state) => state.reducer.favorite)
@@ -152,6 +151,7 @@ function App (){
     
 // }) 
  }
+
 
   const displayBlock = () =>  {
           setDisplay('block');

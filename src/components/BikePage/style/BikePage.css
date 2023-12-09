@@ -126,7 +126,9 @@ button:hover {
   text-transform: uppercase;
 }
 
-
+.carousel {
+    cursor: pointer;
+}
 
 .comments-container {
     display: flex;
