@@ -15,7 +15,7 @@ export default function Categories({handleCategoryChange}){
                    <div className="container">
                             <div className="cat-1" onClick={() => {handleCategoryClick("All"); console.log(selectedCategory)} }><p>All</p></div>
                             <div className="cat-2" onClick={() => handleCategoryClick("Bikes")}><p>Bikes</p></div>
-                            <div className="cat-3" onClick={() => handleCategoryClick("Rudders")}><p>Rudders</p></div>
+                            <div className="cat-3" onClick={() => handleCategoryClick("Rudders")}><p>Bars</p></div>
                             <div className="cat-4" onClick={() => handleCategoryClick("Frames")}><p>Frames</p></div>
                    </div>
 

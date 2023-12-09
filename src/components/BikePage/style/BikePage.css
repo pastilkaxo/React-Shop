@@ -255,5 +255,7 @@ button:hover {
     font-weight: 100;
     width: auto;
 }
-
+.bike-info-container {
+    margin-top: -80px;
+}
 }

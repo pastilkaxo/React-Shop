@@ -45,8 +45,6 @@ transform: scale(1.2);
     .photo-wrapper {
         top: 200px;
     }
-    .photo-src{
-    }
     .photo-src img {
         width: 100%;
         height: auto;

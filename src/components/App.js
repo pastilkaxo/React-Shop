@@ -21,6 +21,7 @@ function App (){
   const [showMainContent, setShowMainContent] = useState(true); 
   const [displayFavContainer, setDisplayFavContainer] = useState(true);
   const [boughtItems, setBoughtItems] = useState([]);
+  const [overFlow , setOverflow] = useState('auto')
 
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.reducer.cart);
@@ -155,11 +156,14 @@ function App (){
 
   const displayBlock = () =>  {
           setDisplay('block');
+          setOverflow('hidden');
   }
   const displayNone = () => {
      setDisplay('none');
+     setOverflow('auto');
+      
   }
-
+  document.documentElement.style.overflow = overFlow
 // -----------------------------------------|
 const headerProps = {
   toggleFavContainer:toggleFavContainer,
@@ -208,6 +212,7 @@ const bikeProps = {
     added:added,
     addFavBtn: addFavBtn,
     favorite: favorite,
+    setOverflow:setOverflow,
   
 }
 

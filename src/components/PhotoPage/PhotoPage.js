@@ -1,6 +1,12 @@
 import "./style/PhotoPage.css"
 
-export default function PhotoPage({displayPhoto,setDisplayPhoto,choosenPhoto}){
+export default function PhotoPage({displayPhoto,setDisplayPhoto,choosenPhoto,setOverflow}){
+
+    const pageCloser = () => {
+        setDisplayPhoto('none')
+        setOverflow('auto')
+    }
+
     return(
         <div className="photo-overlay" style={{display:displayPhoto}}>
                     <div className="photo-wrapper" >
@@ -8,7 +14,7 @@ export default function PhotoPage({displayPhoto,setDisplayPhoto,choosenPhoto}){
             <img src={choosenPhoto} alt="photo"/>
           </div>
           <div className="photo-closer" >
-               <img src="/img/close-outline.svg" onClick={()=>{setDisplayPhoto('none')}} alt="closer"/>
+               <img src="/img/close-outline.svg" onClick={()=>pageCloser()} alt="closer"/>
           </div>
         </div>
         </div>
