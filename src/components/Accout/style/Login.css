@@ -130,6 +130,15 @@ button:hover {
   justify-content: center;
 }
 
+.user-name-block {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.user-name-block img {
+  cursor: pointer;
+  width: 32px;
+}
   @media screen and (max-width:600px) {
     .login-form {
         width: 300px;

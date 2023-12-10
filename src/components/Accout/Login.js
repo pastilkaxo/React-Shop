@@ -5,6 +5,7 @@ import 'react-edit-text/dist/index.css';
 import { Link } from "react-router-dom";
 import React, {useRef, useState , useEffect} from 'react';
 import { useSnackbar } from "notistack";
+import UserEditor from '../UserEditor/UserEditor';
 import UploadAvatar from './UpploadAvatar';
 import { 
     authorize,
@@ -24,8 +25,10 @@ export default function Login({boughtItems,clearFav,clearCart,setBoughtItems}){
     const isAuthorized = useSelector((state) => state.user.isAuthorized);
     const [logType, setLogType] = useState(true);
     const [typeName ,setTypeName] = useState('Register');
+    const [displayInput,setDisplayInput] = useState('none')
+    const [displayNameBlock , setDisplayNameBlock] = useState('flex')
     const { enqueueSnackbar } = useSnackbar();
-
+    
     
     const usernameRef = useRef("");
     const emailRef = useRef("");
@@ -62,9 +65,18 @@ export default function Login({boughtItems,clearFav,clearCart,setBoughtItems}){
         setBoughtItems([]);
     };
     
-    const handleEditName = () => {
-        dispatch(setName(usernameRef.current))
+    const handleEditName = (name) => {
+        dispatch(setName(name.current.value))
+        setDisplayInput('none')
+        setDisplayNameBlock('flex')
     }
+    const handleShowEditor = () => {
+        setDisplayInput('block');
+        setDisplayNameBlock('none')
+    }
+
+
+
 
 
    if(isAuthorized) {
@@ -81,14 +93,19 @@ export default function Login({boughtItems,clearFav,clearCart,setBoughtItems}){
                </div>
                <div className={styles.user_profile}>
                 <UploadAvatar/>
-               {/* <img  className={styles.user_profile_img} src="./img/avatar2.jpg" alt=" "/> */}
                    <div className={styles.user_profile_data}>
                        <h2>Username:<br/>
-                       <EditText
-                       name='textbox2'
-                       defaultValue={userName}
-                       />
+                      <UserEditor handleEditName={handleEditName} 
+                      usernameRef={usernameRef}
+                      displayInput={displayInput}
+                      />
                        </h2>
+                       <div className='user-name-block' style={{display:displayNameBlock}}>
+                       <span>{userName} </span>
+                       <img src='./img/nameEdit.svg'
+                       onClick={() => handleShowEditor()}
+                       className='name-edit' alt=' '/>
+                       </div>
                        <p>Email: <br/> {userEmail}</p>
                        <div className={styles.user_profile_data_buttons}>
                            <Link to="/"><button >Back to main</button></Link>

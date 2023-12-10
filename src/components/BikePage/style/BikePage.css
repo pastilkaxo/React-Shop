@@ -188,7 +188,7 @@ button:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
   }
   
   .comment-head h3 {
@@ -233,6 +233,15 @@ button:hover {
   .carousel .slide img {
     width: 100%;
   }
+  .comment-avatar {
+    width: 42px;
+    border-radius: 20px;
+}
+.comm-from {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
 
   @media screen and (max-width:600px) {
     .bike_container {

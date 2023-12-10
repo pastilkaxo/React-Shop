@@ -21,6 +21,7 @@ export default function BikePage({ bikes, added, addToCart, addFavBtn, favorite,
   const dispatch = useDispatch();
   const commentsList = useSelector((state) => state.comment.commentsList);
   const userName = useSelector((state) => state.user.userName);
+  const avatar = useSelector((state) => state.user.userAvatar)
   const { id } = useParams();
   const bikeID = Number(id);
   const cardToShow = bikes.find((item) => item.id === bikeID);
@@ -71,6 +72,7 @@ const bikeName = cardToShow.name;
  const newComment = {
   id:commentInput.length,
   bikeName,
+  avatar,
   userName,
   time: `${hours}:${minutes}:${seconds}`,
   text: commentInput,
@@ -138,7 +140,10 @@ console.log(commentsList)
         { commentsList.map((comment) => (
             <div key={comment.id} className="comment">
               <div className="comment-head">
+                <div className="comm-from">
+                <img src={comment.avatar} className="comment-avatar" alt=" "/>
                 <h3>{comment.userName}:<br/><small>{comment.bikeName}</small></h3>
+                </div>
                  <div>
                  <div className="com-btn">
               <button onClick={() => deleteComment(comment.id,comment.userName)}><img src='/img/trash.png' alt='clean'/></button>

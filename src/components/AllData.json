@@ -17,7 +17,7 @@
 "name":"BMX Bike 3" ,
  "cost":99 ,
   "id":3,
-  "img":["/img/bike3.jpeg","/img/bike3_2.jpeg","/img/bike3_3.jpeg","/img/bike3_4.jpeg"],
+  "img":["/img/bike3.jpeg","/img/bike3_2.jpeg","/img/bike3_3.jpeg"],
   "desq":"BMX Bike 3 combines affordability with agility, making it an ideal choice for riders who prioritize maneuverability and speed. Despite its low cost, this lightweight bike doesn't skimp on performance. It's a fantastic option for entry-level riders looking for a budget-friendly yet high-performing BMX bike."
 },
 {
