@@ -1,5 +1,3 @@
-import "./style/UserEditor.css"
-
 export default function UserEditor({handleEditName,displayInput,usernameRef}){
     const handleKeyDown = (event) => {
             if(event.key === 'Enter'){
