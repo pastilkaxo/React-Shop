@@ -22,7 +22,7 @@
 }
 .photo-src img {
     width: 100%;
-    height: 750px;
+    height: 700px;
     padding: 25px;
 }
 
@@ -41,7 +41,7 @@
 transform: scale(1.2);
 }
 
-@media screen and (max-width:1300px) {
+@media screen and (max-width:600px) {
     .photo-wrapper {
         top: 200px;
     }

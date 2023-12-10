@@ -129,7 +129,6 @@ button:hover {
 .carousel {
     cursor: pointer;
 }
-
 .comments-container {
     display: flex;
     justify-content: center;
@@ -232,7 +231,7 @@ button:hover {
     font-family: 'Patua One', serif;
   }
 
-@media screen and (max-width:1300px) {
+  @media screen and (max-width:1300px) {
     .bike_container {
         flex-direction: column;
     }
@@ -259,5 +258,3 @@ button:hover {
     margin-top: -80px;
 }
 }
-
-
