@@ -230,6 +230,9 @@ button:hover {
     word-break: break-all;
     font-family: 'Patua One', serif;
   }
+  .carousel .slide img {
+    width: 100%;
+  }
 
   @media screen and (max-width:600px) {
     .bike_container {
@@ -266,5 +269,9 @@ button:hover {
     .bike-info-container {
         margin-top: -80px;
     
+    
+    }
+    .carousel .slide img {
+        width: 50%;
     }
 }
