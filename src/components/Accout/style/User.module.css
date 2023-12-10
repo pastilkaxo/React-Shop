@@ -3,6 +3,7 @@
     justify-content: space-evenly;
     align-items: center;
     padding: 50px;
+    gap: 50px;
   }
 .user_profile_img {
    border-radius: 50%;
