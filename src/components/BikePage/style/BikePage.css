@@ -242,6 +242,12 @@ button:hover {
     align-items: center;
     gap: 5px;
 }
+.go946087465{
+    color: white;
+}
+.go946087465 svg path {
+    fill: white;
+}
 
   @media screen and (max-width:600px) {
     .bike_container {
