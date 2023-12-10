@@ -8,6 +8,7 @@
    border-radius: 50%;
     width: 20vw;
     height: 40vh;
+    cursor: pointer;
 }
 
   .user_profile_data {
@@ -66,7 +67,7 @@ justify-content: center;
     height: 250px;
     }
 }
-@media screen and (max-width:1024px) {
+@media screen and (max-width:1600px) {
   .user_profile_img {
     width: 290px;
     height: 250px;
@@ -76,5 +77,6 @@ justify-content: center;
     }
 }
  
+
 
 

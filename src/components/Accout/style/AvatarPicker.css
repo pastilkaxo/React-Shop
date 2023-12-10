@@ -1,0 +1,53 @@
+.chooose-container {
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+}
+.choose-block{
+    margin-left: 100px;
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    gap: 20px;
+    border-radius: 10px;
+    width: 180px;
+
+    background-color: #9dd558;
+}
+.choose-block img {
+    cursor: pointer;
+    border-radius: 20px;
+    width: 32px;
+}
+.choose-block img:hover {
+ transform: scale(1.5);
+}
+
+.closer {
+    cursor: pointer;
+    position: absolute;
+    display: flex;
+    justify-content: flex-end;
+    margin-left: 260px;
+}
+
+@media screen and (max-width:600px) {
+    .choose-block{
+        margin-left: 50px;
+    }
+    .closer {
+        margin-left: 210px;
+    }
+}
+
+@media screen and (max-width:1300px) {
+    .choose-block{
+        margin-left: 50px;
+    }
+    .closer {
+        margin-left: 210px;
+    }
+}

@@ -5,7 +5,7 @@ import { useSnackbar } from "notistack";
 import { useDispatch, useSelector } from "react-redux";
 import { setCommentsList } from "../Redux/Store";
 import BikeSlider from "./BikeSlider";
-import  './style/BikePage.css';
+import  "./style/BikePage.css";
 
 export default function BikePage({ bikes, added, addToCart, addFavBtn, favorite,setOverflow }) {
   const [bikeFillColors, setBikeFillColors] = useState(bikes.map(() => "black"));

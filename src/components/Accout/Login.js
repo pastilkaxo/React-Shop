@@ -1,6 +1,6 @@
 import './style/Login.css';
 import styles from "./style/User.module.css";
-import { EditText, EditTextarea } from 'react-edit-text';
+import { EditText,EditTextarea  } from 'react-edit-text';
 import 'react-edit-text/dist/index.css';
 import { Link } from "react-router-dom";
 import React, {useRef, useState , useEffect} from 'react';
@@ -61,7 +61,10 @@ export default function Login({boughtItems,clearFav,clearCart,setBoughtItems}){
         clearFav()
         setBoughtItems([]);
     };
- 
+    
+    const handleEditName = () => {
+        dispatch(setName(usernameRef.current))
+    }
 
 
    if(isAuthorized) {
@@ -83,7 +86,6 @@ export default function Login({boughtItems,clearFav,clearCart,setBoughtItems}){
                        <h2>Username:<br/>
                        <EditText
                        name='textbox2'
-                       ref={usernameRef}
                        defaultValue={userName}
                        />
                        </h2>

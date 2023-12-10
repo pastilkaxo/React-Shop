@@ -19,7 +19,7 @@ const initialState = {
   userName:'',
   userEmail:'',
   userPassword:'',
-  userAvatar:'.img/avatar2.jpg',
+  userAvatar:'./img/avatarDefault.jpg',
   preview:null,
   isAuthorized: false,
   // comments:[],
@@ -47,7 +47,7 @@ const userSlice = createSlice({
           state.userName = action.payload.userName;
           state.userEmail = action.payload.userEmail;
           state.userPassword = action.payload.userPassword;
-          state.avatar = 'default';
+          state.userAvatar = './img/avatarDefault.jpg';
       },
       unauthorize: (state) => {
           state.isAuthorized = false;
@@ -58,7 +58,7 @@ const userSlice = createSlice({
       },
       setAvatar: (state, action) => {
           if (!state.isAuthorized) return;
-          state.avatar = action.payload;
+          state.userAvatar = action.payload;
       },
       setPreview:(state,action) => {
         if(!state.isAuthorized) return;

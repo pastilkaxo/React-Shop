@@ -124,8 +124,11 @@ button:hover {
 .logout-btn:hover{
   background-color: rgb(247, 49, 49);
 }
-
-
+.avatar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 
   @media screen and (max-width:600px) {
     .login-form {
@@ -149,3 +152,6 @@ button:hover {
       margin-top: 180px;
     }
   }
+
+
+  

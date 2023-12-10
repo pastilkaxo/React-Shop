@@ -10,14 +10,14 @@
 "name":"BMX Bike 2",
  "cost":150 ,
   "id":2,
-  "img":["/img/bike2.png","/img/bike2_2.webp","/img/bike2_3.webp"],
+  "img":["/img/bike2_2.jpg","/img/bike2.jpg","/img/bike2_3.jpg","/img/bike2_4.jpg","/img/bike2_5.jpg"],
   "desq":"Offering affordability without compromising reliability, BMX Bike 2 is a budget-friendly option for riders. Its sturdy construction and eye-catching design make it an excellent choice for those on a budget. Whether you're a beginner or an experienced rider, this bike provides a dependable and enjoyable BMX experience."
 },
 {
 "name":"BMX Bike 3" ,
  "cost":99 ,
   "id":3,
-  "img":["/img/bike3.webp","/img/bike3_2.webp","/img/bike3_3.webp"],
+  "img":["/img/bike3.jpeg","/img/bike3_2.jpeg","/img/bike3_3.jpeg","/img/bike3_4.jpeg"],
   "desq":"BMX Bike 3 combines affordability with agility, making it an ideal choice for riders who prioritize maneuverability and speed. Despite its low cost, this lightweight bike doesn't skimp on performance. It's a fantastic option for entry-level riders looking for a budget-friendly yet high-performing BMX bike."
 },
 {
