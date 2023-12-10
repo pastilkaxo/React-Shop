@@ -231,7 +231,7 @@ button:hover {
     font-family: 'Patua One', serif;
   }
 
-  @media screen and (max-width:1300px) {
+  @media screen and (max-width:600px) {
     .bike_container {
         flex-direction: column;
     }
@@ -257,4 +257,14 @@ button:hover {
 .bike-info-container {
     margin-top: -80px;
 }
+}
+
+@media (min-height:1000px) and (max-height:1300px) {
+    .bike_container {
+        flex-direction: column;
+    }
+    .bike-info-container {
+        margin-top: -80px;
+    
+    }
 }
