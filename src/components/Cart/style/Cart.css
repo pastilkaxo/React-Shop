@@ -190,11 +190,11 @@
 }
 
 
-
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 950px) {
     .drawer {
-        width: 100%; /* Полная ширина на мобильных устройствах */
-        box-shadow: none; /* Убираем тень на мобильных устройствах, если нужно */
-        padding: 15px; /* Меньшие отступы для мобильных устройств */
+        width: 100%; 
+        box-shadow: none; 
+        padding: 15px; 
     }
 }
+
