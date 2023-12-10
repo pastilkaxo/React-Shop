@@ -1,5 +1,7 @@
 import './style/Login.css';
 import styles from "./style/User.module.css";
+import { EditText, EditTextarea } from 'react-edit-text';
+import 'react-edit-text/dist/index.css';
 import { Link } from "react-router-dom";
 import React, {useRef, useState , useEffect} from 'react';
 import { useSnackbar } from "notistack";
@@ -59,9 +61,7 @@ export default function Login({boughtItems,clearFav,clearCart,setBoughtItems}){
         clearFav()
         setBoughtItems([]);
     };
-
-
-
+ 
 
 
    if(isAuthorized) {
@@ -80,11 +80,17 @@ export default function Login({boughtItems,clearFav,clearCart,setBoughtItems}){
                 <UploadAvatar/>
                {/* <img  className={styles.user_profile_img} src="./img/avatar2.jpg" alt=" "/> */}
                    <div className={styles.user_profile_data}>
-                       <h2>Username:<br/> {userName}</h2>
+                       <h2>Username:<br/>
+                       <EditText
+                       name='textbox2'
+                       ref={usernameRef}
+                       defaultValue={userName}
+                       />
+                       </h2>
                        <p>Email: <br/> {userEmail}</p>
                        <div className={styles.user_profile_data_buttons}>
                            <Link to="/"><button >Back to main</button></Link>
-                           <button onClick={handleLogout}>Logout</button>
+                           <button onClick={handleLogout} className='logout-btn'>Logout</button>
                        </div>
 
                    </div>
@@ -121,6 +127,8 @@ export default function Login({boughtItems,clearFav,clearCart,setBoughtItems}){
   };
 
 
+
+  
 
 
 return(

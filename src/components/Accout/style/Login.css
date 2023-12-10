@@ -118,8 +118,12 @@ button:hover {
     font-size: 18px;
   }
 
-
-
+.logout-btn {
+  background-color: rgb(255, 94, 94);
+}
+.logout-btn:hover{
+  background-color: rgb(247, 49, 49);
+}
 
 
 

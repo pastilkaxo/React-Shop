@@ -8,7 +8,7 @@ export default function PhotoPage({displayPhoto,setDisplayPhoto,choosenPhoto,set
     }
 
     return(
-        <div className="photo-overlay" style={{display:displayPhoto}}>
+        <div className="photo-overlay" style={{display:displayPhoto}} >
                     <div className="photo-wrapper" >
           <div className="photo-src">
             <img src={choosenPhoto} alt="photo"/>
