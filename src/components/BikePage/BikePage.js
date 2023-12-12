@@ -33,7 +33,6 @@ export default function BikePage({ bikes, added, addToCart, addFavBtn, favorite,
     const varCheck = `Item ${added ? 'removed' : 'added'}!`;
     enqueueSnackbar(varCheck, {
       variant,
-      currentColor:'white',
       autoHideDuration: 1500,
     });
   };

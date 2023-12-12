@@ -76,16 +76,6 @@ const userSlice = createSlice({
 });
 
 
-// const commentSlice = createSlice({
-//   name:'comment',
-//   initialState,
-//   reducers:{
-//     setComment:(state ,action) => {
-//       if(!state.isAuthorized) return;
-//       state.comments = action.payload;
-//     }
-//   }
-// })
 
 // c and f slice
 const appSlice = createSlice({
@@ -137,10 +127,6 @@ export const {
   setPassword
 } = userSlice.actions
 
-//action of coms
-// export const {
-// setComment
-// } = commentSlice.actions
 
 export const {
   setCommentsList,

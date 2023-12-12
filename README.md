@@ -1,5 +1,7 @@
 # Интернет-магазин по заказу BMX - BM Shop
 
+![Header](./src/components/VideoComponent/video/vid.mp4)
+
 ReactJS + хуки
 React Router
 Redux
